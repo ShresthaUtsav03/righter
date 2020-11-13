@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:righter/widgets/menu_icon.dart';
 
 class GrammarSection extends StatelessWidget {
   @override
@@ -8,31 +9,71 @@ class GrammarSection extends StatelessWidget {
     //   child: ListView.builder(
     //     itemBuilder: (context, index) {
     return Container(
+      margin: EdgeInsets.symmetric(vertical: 20.0),
       alignment: Alignment.topLeft,
-      child: Column(
-        children: <Widget>[
-          Card(
-            child: Row(
+      child: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                Text('Row 1'),
+                MenuItem(
+                  bgColor: Colors.deepOrangeAccent,
+                  imageLocation: 'assets/images/the.png',
+                  level: 1,
+                  menuLabel: 'Articles',
+                ),
               ],
             ),
-          ),
-          Card(
-            child: Row(
+            SizedBox(height: 20.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                Text('Row 2'),
+                MenuItem(
+                  bgColor: Colors.greenAccent,
+                  imageLocation: 'assets/images/prepositions.png',
+                  level: 2,
+                  menuLabel: 'Prepositions',
+                ),
+                MenuItem(
+                  bgColor: Colors.blueAccent,
+                  imageLocation: 'assets/images/punctuations.png',
+                  level: 3,
+                  menuLabel: 'Punctuations',
+                )
               ],
             ),
-          ),
-          Card(
-            child: Row(
+            SizedBox(height: 20.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                Text('Row 3'),
+                MenuItem(
+                  bgColor: Colors.deepOrangeAccent,
+                  imageLocation: 'assets/images/random.png',
+                  level: 1,
+                  menuLabel: '',
+                ),
               ],
             ),
-          ),
-        ],
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                MenuItem(
+                  bgColor: Colors.greenAccent,
+                  imageLocation: 'assets/images/random.png',
+                  level: 2,
+                  menuLabel: '',
+                ),
+                MenuItem(
+                  bgColor: Colors.blueAccent,
+                  imageLocation: 'assets/images/random.png',
+                  level: 3,
+                  menuLabel: '',
+                ),
+              ],
+            )
+          ],
+        ),
       ),
       //       );
       // },

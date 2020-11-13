@@ -7,6 +7,7 @@ class VocabularyMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
+        //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           InkWell(
@@ -47,7 +48,6 @@ class VocabularyMenu extends StatelessWidget {
           ),
           MenuItem(
             bgColor: Colors.deepOrangeAccent,
-            iconSize: 1.0,
             imageLocation: 'assets/images/dictionary.png',
             level: 1,
             menuLabel: 'Word Meanings',
@@ -58,14 +58,12 @@ class VocabularyMenu extends StatelessWidget {
             children: <Widget>[
               MenuItem(
                 bgColor: Colors.greenAccent,
-                iconSize: 1.0,
                 imageLocation: 'assets/images/select.png',
                 level: 2,
                 menuLabel: 'Multiple Choice',
               ),
               MenuItem(
                 bgColor: Colors.blueAccent,
-                iconSize: 1.0,
                 imageLocation: 'assets/images/question_mark.png',
                 level: 3,
                 menuLabel: 'Fill in the blanks',
