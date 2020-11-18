@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:righter/screens/tense_section.dart';
 
 import '../screens/grammar_section.dart';
 
 import '../screens/profile.dart';
 
-import '../widgets/vocabulary_menu.dart';
+import '../widgets/vocabulary_section.dart';
 
 class MyHomePage extends StatelessWidget {
   @override
@@ -23,12 +24,10 @@ class MyHomePage extends StatelessWidget {
           minimum: const EdgeInsets.all(10.0),
           child: TabBarView(
             children: <Widget>[
-              VocabularyMenu(),
+              VocabularySection(),
               GrammarSection(),
+              TenseSection(),
               Profile(),
-              Container(
-                color: Colors.red,
-              ),
             ],
           ),
         ),
@@ -43,10 +42,10 @@ class MyHomePage extends StatelessWidget {
               icon: Icon(Icons.category),
             ),
             Tab(
-              icon: Icon(Icons.perm_identity),
+              icon: Icon(Icons.group_work),
             ),
             Tab(
-              icon: Icon(Icons.settings),
+              icon: Icon(Icons.perm_identity),
             )
           ],
           labelColor: Colors.amber[900],

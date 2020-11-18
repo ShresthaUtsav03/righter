@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/menu_icon.dart';
+import 'menu_icon.dart';
 
-class VocabularyMenu extends StatelessWidget {
+class VocabularySection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,14 +22,10 @@ class VocabularyMenu extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(height: 10.0),
+                  SizedBox(height: 20.0),
                   Text(
                     'Word of the day',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18.0,
-                      color: Colors.white,
-                    ),
+                    style: Theme.of(context).textTheme.headline3,
                   ),
                   SizedBox(height: 10.0),
                   Text(
@@ -41,7 +37,7 @@ class VocabularyMenu extends StatelessWidget {
                     'adjective',
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
-                  SizedBox(height: 10.0),
+                  SizedBox(height: 20.0),
                 ],
               ),
             ),

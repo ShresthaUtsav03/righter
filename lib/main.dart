@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+
+import './screens/tense_section.dart';
 import './screens/profile.dart';
 import './widgets/typing_answer.dart';
-
 import './screens/grammar_section.dart';
-import './screens/quiz.dart';
 import './screens/home.dart';
 import './screens/word_meaning.dart';
 
@@ -23,20 +23,28 @@ class MyApp extends StatelessWidget {
         //fontFamily:
 
         textTheme: ThemeData.light().textTheme.copyWith(
-              headline4: TextStyle(
-                color: Colors.amberAccent[200],
-                letterSpacing: 1.5,
-                fontSize: 28.0,
-                fontWeight: FontWeight.bold,
-              ),
-              subtitle1: TextStyle(
-                //fontFamily: 'OpenSans',
-                color: Colors.white,
-                fontSize: 19,
-                fontWeight: FontWeight.bold,
-              ),
+            headline4: TextStyle(
+              color: Colors.amberAccent[200],
+              letterSpacing: 1.5,
+              fontSize: 28.0,
+              fontWeight: FontWeight.bold,
             ),
+            headline3: TextStyle(
+              color: Colors.white,
+              fontSize: 34.0,
+            ),
+            subtitle1: TextStyle(
+              //fontFamily: 'OpenSans',
+              color: Colors.white,
+              fontSize: 19,
+              fontWeight: FontWeight.bold,
+            ),
+            bodyText1: TextStyle(
+              color: Colors.white,
+              fontSize: 18.0,
+            )),
         appBarTheme: AppBarTheme(
+          color: Colors.grey[500],
           textTheme: ThemeData.light().textTheme.copyWith(
                 headline6: TextStyle(
                   fontFamily: 'OpenSans',
@@ -51,19 +59,6 @@ class MyApp extends StatelessWidget {
         ),
 
         scaffoldBackgroundColor: Colors.grey[800],
-        //   textTheme: Theme.of(context).textTheme.apply(
-        //       fontFamily: 'Open Sans',
-        //       bodyColor: Colors.white,
-        //       displayColor: Colors.white),
-        // ),
-        // theme: ThemeData(
-        //   textTheme: TextTheme(
-        //     bodyText1: TextStyle(),
-        //     bodyText2: TextStyle(),
-        //   ).apply(
-        //     bodyColor: Colors.white,
-        //     displayColor: Colors.blue,
-        //   ),
       ),
       initialRoute: '/home',
       routes: {
@@ -72,6 +67,7 @@ class MyApp extends StatelessWidget {
         '/grammar': (context) => GrammarSection(),
         '/typing': (context) => TypingWidget(),
         '/profile': (context) => Profile(),
+        '/verbs': (context) => TenseSection(),
 
         //'/quiz': (context) => Ques
       },

@@ -5,14 +5,9 @@ class WordMeaning extends StatelessWidget {
   final group = 'Adjective';
   final meaning =
       'stubbornly refusing to change one\'s opinion or chosen course of action, despite attempts to persuade one to do so.';
-  final synonyms = [
-    'stubborn',
-    'headstrong',
-    'willful',
-    'unyielding',
-    'inflexible',
-    'unbending'
-  ];
+  final synonyms =
+      'stubborn, headstrong, willful, unyielding, inflexible, unbending';
+
   final uses = [
     'An obstinate person is difficult to persuade.',
     'My obstinate brother refuses to listen to vegan arguments'
@@ -22,10 +17,8 @@ class WordMeaning extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Righter'),
-        backgroundColor: Colors.grey[900],
+        title: Text('Learn new words'),
       ),
-      backgroundColor: Colors.grey[800],
       body: Container(
           margin: EdgeInsets.all(30.0),
           child: Column(
@@ -33,26 +26,23 @@ class WordMeaning extends StatelessWidget {
             children: [
               Text(
                 word,
-                style: TextStyle(
-                  fontSize: 36.0,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: Theme.of(context).textTheme.headline4,
               ),
-              SizedBox(height: 10.0),
+              SizedBox(height: 1.0),
+              Text(group, style: Theme.of(context).textTheme.subtitle1),
+              SizedBox(height: 30.0),
+              Text(meaning, style: Theme.of(context).textTheme.bodyText1),
+              SizedBox(height: 20.0),
               Text(
-                group,
-                style: TextStyle(
-                  fontSize: 20.0,
-                ),
+                'Synonyms:',
+                style: Theme.of(context).textTheme.bodyText1,
               ),
               SizedBox(height: 20.0),
               Text(
-                meaning,
-                style: TextStyle(
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.bold,
-                ),
+                synonyms,
+                style: Theme.of(context).textTheme.bodyText1,
               ),
+              SizedBox(height: 20.0),
               SizedBox(height: 20.0),
               RaisedButton(
                 onPressed: () {},
