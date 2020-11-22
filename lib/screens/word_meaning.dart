@@ -5,8 +5,14 @@ class WordMeaning extends StatelessWidget {
   final group = 'Adjective';
   final meaning =
       'stubbornly refusing to change one\'s opinion or chosen course of action, despite attempts to persuade one to do so.';
-  final synonyms =
-      'stubborn, headstrong, willful, unyielding, inflexible, unbending';
+  final synonyms = [
+    'stubborn',
+    'headstrong',
+    'willful',
+    'unyielding',
+    'inflexible',
+    'unbending'
+  ];
 
   final uses = [
     'An obstinate person is difficult to persuade.',
@@ -31,18 +37,29 @@ class WordMeaning extends StatelessWidget {
               SizedBox(height: 1.0),
               Text(group, style: Theme.of(context).textTheme.subtitle1),
               SizedBox(height: 30.0),
-              Text(meaning, style: Theme.of(context).textTheme.bodyText1),
-              SizedBox(height: 20.0),
+              Text(meaning, style: Theme.of(context).textTheme.bodyText2),
+              SizedBox(height: 30.0),
               Text(
                 'Synonyms:',
                 style: Theme.of(context).textTheme.bodyText1,
               ),
-              SizedBox(height: 20.0),
+              SizedBox(height: 10.0),
+              for (var syn in synonyms)
+                Text(
+                  '- ' + syn,
+                  style: Theme.of(context).textTheme.bodyText2,
+                ),
+              SizedBox(height: 30.0),
               Text(
-                synonyms,
+                'Examples:',
                 style: Theme.of(context).textTheme.bodyText1,
               ),
-              SizedBox(height: 20.0),
+              SizedBox(height: 10.0),
+              for (var eg in uses)
+                Text(
+                  '- ' + eg,
+                  style: Theme.of(context).textTheme.bodyText2,
+                ),
               SizedBox(height: 20.0),
               RaisedButton(
                 onPressed: () {},

@@ -86,7 +86,7 @@ class Profile extends StatelessWidget {
                 ),
                 Text(
                   'brucelee@1inch.punch',
-                  style: Theme.of(context).textTheme.headline6,
+                  style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),

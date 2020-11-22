@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:righter/screens/homie.dart';
+import 'package:righter/screens/login.dart';
+import 'package:righter/screens/sign_up.dart';
 
 import './screens/tense_section.dart';
 import './screens/profile.dart';
@@ -19,30 +22,38 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.grey,
         accentColor: Colors.deepOrangeAccent,
+        primaryColor: Colors.amberAccent[200],
 
         //fontFamily:
 
         textTheme: ThemeData.light().textTheme.copyWith(
-            headline4: TextStyle(
-              color: Colors.amberAccent[200],
-              letterSpacing: 1.5,
-              fontSize: 28.0,
-              fontWeight: FontWeight.bold,
+              headline4: TextStyle(
+                color: Colors.amberAccent[200],
+                letterSpacing: 1.5,
+                fontSize: 28.0,
+                fontWeight: FontWeight.bold,
+              ),
+              headline3: TextStyle(
+                color: Colors.white,
+                fontSize: 34.0,
+              ),
+              subtitle1: TextStyle(
+                //fontFamily: 'OpenSans',
+                color: Colors.white,
+                fontSize: 19,
+                fontWeight: FontWeight.bold,
+              ),
+              bodyText2: TextStyle(
+                color: Colors.grey[400],
+                fontSize: 18.0,
+              ),
+              bodyText1: TextStyle(
+                color: Colors.white,
+                fontSize: 20.0,
+                decoration: TextDecoration.underline,
+              ),
             ),
-            headline3: TextStyle(
-              color: Colors.white,
-              fontSize: 34.0,
-            ),
-            subtitle1: TextStyle(
-              //fontFamily: 'OpenSans',
-              color: Colors.white,
-              fontSize: 19,
-              fontWeight: FontWeight.bold,
-            ),
-            bodyText1: TextStyle(
-              color: Colors.white,
-              fontSize: 18.0,
-            )),
+
         appBarTheme: AppBarTheme(
           color: Colors.grey[500],
           textTheme: ThemeData.light().textTheme.copyWith(
@@ -60,7 +71,7 @@ class MyApp extends StatelessWidget {
 
         scaffoldBackgroundColor: Colors.grey[800],
       ),
-      initialRoute: '/home',
+      initialRoute: '/homie',
       routes: {
         '/home': (context) => MyHomePage(),
         '/word': (context) => WordMeaning(),
@@ -68,6 +79,9 @@ class MyApp extends StatelessWidget {
         '/typing': (context) => TypingWidget(),
         '/profile': (context) => Profile(),
         '/verbs': (context) => TenseSection(),
+        '/signup': (context) => Signup(),
+        '/homie': (context) => Homie(),
+        '/login': (context) => Loginscreen(),
 
         //'/quiz': (context) => Ques
       },

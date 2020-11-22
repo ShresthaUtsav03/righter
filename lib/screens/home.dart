@@ -48,11 +48,11 @@ class MyHomePage extends StatelessWidget {
               icon: Icon(Icons.perm_identity),
             )
           ],
-          labelColor: Colors.amber[900],
+          labelColor: Theme.of(context).accentColor,
           unselectedLabelColor: Colors.indigoAccent[100],
           indicatorSize: TabBarIndicatorSize.tab,
           indicatorPadding: EdgeInsets.all(5.0),
-          indicatorColor: Colors.amber[900],
+          indicatorColor: Theme.of(context).accentColor,
         ),
       ),
     );
