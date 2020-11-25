@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:righter/screens/tense_section.dart';
+import './tense_section.dart';
 
-import '../screens/grammar_section.dart';
+import './grammar_section.dart';
 
-import '../screens/profile.dart';
+import '../profile.dart';
 
-import '../widgets/vocabulary_section.dart';
+import './vocabulary_section.dart';
 
 class MyHomePage extends StatelessWidget {
   @override

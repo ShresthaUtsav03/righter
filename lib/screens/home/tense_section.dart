@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/menu_icon.dart';
+import '../../widgets/menu_icon.dart';
 
 class TenseSection extends StatelessWidget {
   @override

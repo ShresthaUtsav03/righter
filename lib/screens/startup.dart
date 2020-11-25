@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:animated_button/animated_button.dart';
 
-class Homie extends StatelessWidget {
+class Startup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;

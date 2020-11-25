@@ -1,9 +1,15 @@
+import 'package:animated_button/animated_button.dart';
 import 'package:flutter/material.dart';
+import 'package:righter/screens/services/auth.dart';
 
 class Profile extends StatelessWidget {
   final String imageLocation = 'assets/images/default.jpg';
+  final AuthService _authService = AuthService();
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+
     return Container(
       child: Padding(
         padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
@@ -90,6 +96,28 @@ class Profile extends StatelessWidget {
                 ),
               ],
             ),
+            SizedBox(height: 30.0),
+            AnimatedButton(
+              shadowDegree: ShadowDegree.light,
+              enabled: true,
+              height: 50,
+              width: width * 0.8,
+              //color: Theme.of(context).accentColor,
+              onPressed: () async {
+                await _authService.signOut();
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.person),
+                  SizedBox(width: width * 0.01),
+                  Text(
+                    'Sign out',
+                    style: Theme.of(context).textTheme.bodyText1,
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),

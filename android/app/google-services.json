@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "136335879139",
+    "firebase_url": "https://right-ly-976e3.firebaseio.com",
+    "project_id": "right-ly-976e3",
+    "storage_bucket": "right-ly-976e3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:136335879139:android:3a1eafc81c5902c463ced6",
+        "android_client_info": {
+          "package_name": "com.vastutsav.righter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "136335879139-6iut2f1ebkr8fq6snscuu9o28egn01bi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vastutsav.righter",
+            "certificate_hash": "5086b689364dc5a119c4ee1526aa6f62c0be8d25"
+          }
+        },
+        {
+          "client_id": "136335879139-o2cm4449iboepkq59ifuv9038hb6faoe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIOA2ssYl2X7B6N45Y5DcwpNUkIL0fMSY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "136335879139-o2cm4449iboepkq59ifuv9038hb6faoe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

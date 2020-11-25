@@ -3,15 +3,20 @@ import 'package:flutter/material.dart';
 class Customtextfield extends StatelessWidget {
   final bool issecured;
   final String hint;
+  final Function changeFunction;
+  final Function validateFunction;
 
-  Customtextfield({this.hint, this.issecured});
+  Customtextfield(
+      {this.hint, this.issecured, this.changeFunction, this.validateFunction});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      child: TextField(
+      child: TextFormField(
+        validator: validateFunction,
         obscureText: issecured,
+        onChanged: changeFunction,
         decoration: InputDecoration(
             hintText: hint,
             filled: true,

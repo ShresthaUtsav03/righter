@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'menu_icon.dart';
+import '../../widgets/menu_icon.dart';
 
 class VocabularySection extends StatelessWidget {
   @override
