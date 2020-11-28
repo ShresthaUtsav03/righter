@@ -1,19 +1,25 @@
 import 'package:animated_button/animated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:righter/screens/services/auth.dart';
+import 'package:righter/shared/constants.dart';
 
 import '../../widgets/customTextField.dart';
 
 class Login extends StatefulWidget {
+  final Function toggleView;
+  Login({this.toggleView});
+
   @override
   _LoginState createState() => _LoginState();
 }
 
 class _LoginState extends State<Login> {
   final AuthService _authService = AuthService();
+  final _formKey = GlobalKey<FormState>();
 
   String email = '';
   String password = '';
+  String error = '';
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +34,7 @@ class _LoginState extends State<Login> {
                 image: DecorationImage(
                     image: AssetImage('assets/images/back2.png'))),
             child: Form(
+              key: _formKey,
               child: Center(
                 child: Container(
                   child: Column(
@@ -76,17 +83,45 @@ class _LoginState extends State<Login> {
                       ),
                       Customtextfield(
                         hint: 'Enter your email',
+                        validateFunction: (val) {
+                          bool emailValid = RegExp(
+                                  r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                              .hasMatch(val);
+                          if (val.isEmpty) {
+                            return 'Field cannot be empty';
+                          } else if (!emailValid) {
+                            return 'Invalid email';
+                          } else {
+                            return '';
+                          }
+                        },
                         issecured: false,
                         changeFunction: (val) {
-                          setState(() => email = val);
+                          setState(() => email = val.trim());
                         },
                       ),
                       Customtextfield(
                         hint: 'Enter your password',
                         issecured: true,
+                        validateFunction: (val) {
+                          if (val.isEmpty) {
+                            return 'This field cannot be empty';
+                          } else if (val.length < 6) {
+                            return 'Password is too short';
+                          } else {
+                            return null;
+                          }
+                        },
                         changeFunction: (val) {
                           setState(() => password = val);
                         },
+                      ),
+                      SizedBox(
+                        height: 25,
+                      ),
+                      Text(
+                        error,
+                        style: errorStyle,
                       ),
                       SizedBox(
                         height: 25,
@@ -100,18 +135,17 @@ class _LoginState extends State<Login> {
                             width: 130,
                             color: Theme.of(context).accentColor,
                             //color: Color(0xFFFE7550),
-                            onPressed: () {},
-                            // onPressed: () async {
-                            //   dynamic result =
-                            //       await _authService.signInWithEmail();
+                            onPressed: () async {
+                              if (_formKey.currentState.validate()) {
+                                dynamic result = await _authService
+                                    .signInWithEmail(email, password);
+                                // print(result);
+                                if (result == null) {
+                                  setState(() => error = 'User not found!');
+                                }
+                              }
+                            },
 
-                            //   if (result == null) {
-                            //     print("Error sign in");
-                            //   } else {
-                            //     print("sign in");
-                            //     print(result);
-                            //   }
-                            // },
                             child: Text(
                               'Login',
                               style: TextStyle(

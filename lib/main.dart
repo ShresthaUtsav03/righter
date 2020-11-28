@@ -6,7 +6,7 @@ import './models/user.dart';
 import './screens/services/auth.dart';
 import './screens/startup.dart';
 import './screens/authentication/login.dart';
-import './screens/sign_up.dart';
+import 'screens/authentication/sign_up.dart';
 import './screens/wrapper.dart';
 import './screens/home/tense_section.dart';
 import './screens/profile.dart';
@@ -80,7 +80,7 @@ class MyApp extends StatelessWidget {
 
           scaffoldBackgroundColor: Colors.grey[850],
         ),
-        initialRoute: '/startup',
+        initialRoute: '/wrapper',
         routes: {
           '/wrapper': (context) => Wrapper(),
           '/home': (context) => MyHomePage(),

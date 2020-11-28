@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:righter/screens/services/auth.dart';
+import 'package:righter/shared/constants.dart';
 
-import '../widgets/customTextField.dart';
+import '../../widgets/customTextField.dart';
 
 class Signup extends StatefulWidget {
+  final Function toggleView;
+  Signup({this.toggleView});
+
   @override
   _SignupState createState() => _SignupState();
 }
@@ -22,14 +26,15 @@ class _SignupState extends State<Signup> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
-      //resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('assets/images/back3.png'),
-                  fit: BoxFit.fill),
+                image: AssetImage('assets/images/back3.png'),
+                fit: BoxFit.fill,
+              ),
             ),
             child: Form(
               key: _formKey,
@@ -80,7 +85,7 @@ class _SignupState extends State<Signup> {
                       height: height * .18,
                     ),
                     Customtextfield(
-                      hint: 'Enter your name',
+                      hint: 'Enter a nickname',
                       issecured: false,
                       changeFunction: (val) {
                         setState(() => name = val);
@@ -89,28 +94,60 @@ class _SignupState extends State<Signup> {
                           val.isEmpty ? 'Field cannot be empty' : null,
                     ),
                     Customtextfield(
-                      hint: 'Enter your email',
-                      issecured: false,
-                      changeFunction: (val) {
-                        setState(() => email = val);
-                      },
-                      validateFunction: (val) =>
-                          val.isEmpty ? 'Field cannot be empty' : null,
-                    ),
+                        hint: 'Enter your email',
+                        issecured: false,
+                        changeFunction: (val) {
+                          setState(() => email = val);
+                        },
+                        validateFunction: (val) {
+                          bool emailValid = RegExp(
+                                  r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                              .hasMatch(email);
+                          if (val.isEmpty) {
+                            return 'Field cannot be empty';
+                          } else if (!emailValid) {
+                            return 'Invalid email';
+                          } else {
+                            return '';
+                          }
+                        }),
                     Customtextfield(
-                      hint: 'Enter your password',
+                      hint: 'Password',
                       issecured: true,
                       changeFunction: (val) {
                         setState(() => password = val);
                       },
-                      validateFunction: (val) =>
-                          val.isEmpty ? 'Field cannot be empty' : null,
+                      validateFunction: (val) {
+                        if (val.isEmpty) {
+                          return 'This field cannot be empty';
+                        } else if (val.length < 6) {
+                          return 'Password is too short';
+                        } else {
+                          return null;
+                        }
+                      },
                     ),
                     Customtextfield(
                       hint: 'Confirm password',
                       issecured: true,
-                      validateFunction: (val) =>
-                          val.isEmpty ? 'Field cannot be empty' : null,
+                      validateFunction: (val) {
+                        if (val.isEmpty) {
+                          return 'This field cannot be empty';
+                        } else if (val.length < 6) {
+                          return 'Password is too short';
+                        } else if (val != password) {
+                          return 'Passwords do not match!';
+                        } else {
+                          return null;
+                        }
+                      },
+                    ),
+                    SizedBox(
+                      height: height * .03,
+                    ),
+                    Text(
+                      error,
+                      style: errorStyle,
                     ),
                     SizedBox(
                       height: height * .03,
@@ -127,11 +164,11 @@ class _SignupState extends State<Signup> {
                           ),
                           onPressed: () async {
                             if (_formKey.currentState.validate()) {
-                              dynamic result =
-                                  await _authService.registerWithEmailAndPass(
-                                      name, email, password);
+                              dynamic result = await _authService
+                                  .signInWithEmail(email, password);
+                              // print(result);
                               if (result == null) {
-                                setState(() => error = 'Invalid email');
+                                setState(() => error = '');
                               }
                             }
                           },
@@ -145,7 +182,6 @@ class _SignupState extends State<Signup> {
                     SizedBox(
                       height: height * .03,
                     ),
-                    Text(error),
                   ],
                 ),
               ),

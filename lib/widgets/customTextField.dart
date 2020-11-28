@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:righter/shared/constants.dart';
 
 class Customtextfield extends StatelessWidget {
   final bool issecured;
@@ -21,9 +22,11 @@ class Customtextfield extends StatelessWidget {
             hintText: hint,
             filled: true,
             fillColor: Colors.grey[300],
+            errorStyle: errorStyle,
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
-                borderSide: BorderSide(color: Colors.transparent)),
+                borderSide:
+                    BorderSide(color: Theme.of(context).accentColor, width: 2)),
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
                 borderSide: BorderSide(color: Colors.transparent)),
