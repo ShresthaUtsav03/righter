@@ -20,7 +20,19 @@ class AuthService {
       UserCredential result = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
       User user = result.user;
+      print('user found in datavase');
       return _userFromFirebaseUser(user);
+    } on FirebaseAuthException catch (e) {
+      print("magic code called");
+      if (e.code == 'user-not-found') {
+        return null;
+
+        //print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        return null;
+
+        //print('Wrong password provided for that user.');
+      }
     } catch (e) {
       print(e.toString());
       return null;
@@ -35,6 +47,16 @@ class AuthService {
           email: email, password: password);
       User user = result.user;
       return _userFromFirebaseUser(user);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        return null;
+
+        //print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        return null;
+
+        //print('Wrong password provided for that user.');
+      }
     } catch (e) {
       print(e.toString());
       return null;

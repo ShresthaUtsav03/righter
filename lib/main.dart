@@ -9,7 +9,7 @@ import './screens/authentication/login.dart';
 import 'screens/authentication/sign_up.dart';
 import './screens/wrapper.dart';
 import './screens/home/tense_section.dart';
-import './screens/profile.dart';
+import 'screens/home/profile.dart';
 import './widgets/typing_answer.dart';
 import './screens/home/grammar_section.dart';
 import './screens/home/home.dart';

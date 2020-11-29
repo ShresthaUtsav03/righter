@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:righter/screens/services/auth.dart';
+import 'package:righter/shared/loading.dart';
 
-class Profile extends StatelessWidget {
+class Profile extends StatefulWidget {
+  @override
+  _ProfileState createState() => _ProfileState();
+}
+
+class _ProfileState extends State<Profile> {
   final String imageLocation = 'assets/images/default.jpg';
   final AuthService _authService = AuthService();
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -112,7 +119,10 @@ class Profile extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(Icons.person),
+                      Icon(
+                        Icons.person,
+                        color: Colors.white,
+                      ),
                       SizedBox(width: width * 0.01),
                       Text(
                         'Sign out',

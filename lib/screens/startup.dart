@@ -65,7 +65,7 @@ class Startup extends StatelessWidget {
                       width: 130,
                       color: Theme.of(context).accentColor,
                       onPressed: () {
-                        Navigator.pushNamed(context, '/login');
+                        Navigator.pushReplacementNamed(context, '/login');
                         // Navigator.push(context,
                         //      MaterialPageRoute(
                         //     builder: (context) => Loginscreen())

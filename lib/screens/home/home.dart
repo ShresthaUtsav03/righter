@@ -3,13 +3,15 @@ import './tense_section.dart';
 
 import './grammar_section.dart';
 
-import '../profile.dart';
+import 'profile.dart';
 
 import './vocabulary_section.dart';
 
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    print('homepage here');
+
     return DefaultTabController(
       length: 4,
       child: Scaffold(
