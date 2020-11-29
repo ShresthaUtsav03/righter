@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 
 import './models/user.dart';
 import './screens/services/auth.dart';
-import './screens/startup.dart';
+import 'screens/authentication/startup.dart';
 import './screens/authentication/login.dart';
 import 'screens/authentication/sign_up.dart';
 import './screens/wrapper.dart';

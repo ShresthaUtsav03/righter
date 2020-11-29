@@ -50,7 +50,8 @@ class _SignupState extends State<Signup> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              Navigator.pop(context);
+                              widget.toggleView();
+                              // Navigator.pop(context);
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,

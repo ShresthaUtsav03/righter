@@ -187,8 +187,9 @@ class _LoginState extends State<Login> {
                                 ),
                                 GestureDetector(
                                   onTap: () {
-                                    Navigator.pushReplacementNamed(
-                                        context, '/signup');
+                                    widget.toggleView();
+                                    // Navigator.pushReplacementNamed(
+                                    //     context, '/signup');
                                     // Navigator.push(context,
                                     //     MaterialPageRoute(builder: (ctx) => Signupscreen()));
                                   },
