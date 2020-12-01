@@ -1,10 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:provider/provider.dart';
 
 import '../../widgets/menu_icon.dart';
 
-class VocabularySection extends StatelessWidget {
+class VocabularySection extends StatefulWidget {
+  @override
+  _VocabularySectionState createState() => _VocabularySectionState();
+}
+
+class _VocabularySectionState extends State<VocabularySection> {
   @override
   Widget build(BuildContext context) {
+    final levels = Provider.of<QuerySnapshot>(context);
+    // print(levels.docs);
+    for (var doc in levels.docs) {
+      print(doc.data()['present']);
+    }
     return Container(
       child: Column(
         //mainAxisAlignment: MainAxisAlignment.spaceEvenly,

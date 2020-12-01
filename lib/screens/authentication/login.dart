@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:animated_button/animated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:righter/screens/services/auth.dart';

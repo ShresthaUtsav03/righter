@@ -35,7 +35,7 @@ dependencies:
   provider: ^4.3.2+2
   firebase_core : ^0.5.2
   flutter_spinkit: ^4.1.2
-  #cloud_firestore: ^0.14.3
+  cloud_firestore: ^0.14.3
   #quiz_view: ^1.0.3
 
   

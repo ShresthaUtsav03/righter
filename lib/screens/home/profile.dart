@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:righter/screens/services/auth.dart';
-import 'package:righter/shared/loading.dart';
 
 class Profile extends StatefulWidget {
   @override
