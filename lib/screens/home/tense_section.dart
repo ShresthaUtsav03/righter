@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
 import '../../widgets/menu_icon.dart';
 
-class TenseSection extends StatelessWidget {
+class TenseSection extends StatefulWidget {
+  final int pastLevel;
+  final int presentLevel;
+  final int futureLevel;
+
+  TenseSection({this.futureLevel, this.pastLevel, this.presentLevel});
+  @override
+  _TenseSectionState createState() => _TenseSectionState();
+}
+
+class _TenseSectionState extends State<TenseSection> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -48,7 +58,7 @@ class TenseSection extends StatelessWidget {
               MenuItem(
                 bgColor: Colors.deepOrangeAccent,
                 imageLocation: 'assets/images/present.png',
-                level: 1,
+                level: widget.presentLevel,
                 menuLabel: 'Present tense',
               ),
             ],
@@ -60,13 +70,13 @@ class TenseSection extends StatelessWidget {
               MenuItem(
                 bgColor: Colors.greenAccent,
                 imageLocation: 'assets/images/past.png',
-                level: 2,
+                level: widget.pastLevel,
                 menuLabel: 'Past tense',
               ),
               MenuItem(
                 bgColor: Colors.blueAccent,
                 imageLocation: 'assets/images/future.png',
-                level: 3,
+                level: widget.futureLevel,
                 menuLabel: 'Future tense',
               ),
             ],

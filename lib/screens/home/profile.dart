@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:righter/screens/services/auth.dart';
 
 class Profile extends StatefulWidget {
+  final String username;
+  Profile({this.username});
   @override
   _ProfileState createState() => _ProfileState();
 }
@@ -12,7 +14,7 @@ class _ProfileState extends State<Profile> {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
+    //double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
     return Container(
@@ -43,7 +45,7 @@ class _ProfileState extends State<Profile> {
             ),
             SizedBox(height: 10.0),
             Text(
-              'Bruce-Lee',
+              widget.username,
               style: Theme.of(context).textTheme.headline4,
             ),
             SizedBox(height: 30.0),
@@ -107,7 +109,10 @@ class _ProfileState extends State<Profile> {
               child: ButtonTheme(
                 minWidth: width,
                 height: 55,
-                child: RaisedButton(
+                child: OutlineButton(
+                  borderSide: BorderSide(
+                    color: Colors.grey,
+                  ),
                   color: Colors.blueGrey,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
@@ -123,10 +128,8 @@ class _ProfileState extends State<Profile> {
                         color: Colors.white,
                       ),
                       SizedBox(width: width * 0.01),
-                      Text(
-                        'Sign out',
-                        style: Theme.of(context).textTheme.bodyText1,
-                      ),
+                      Text('Sign out',
+                          style: Theme.of(context).textTheme.subtitle1),
                     ],
                   ),
                 ),

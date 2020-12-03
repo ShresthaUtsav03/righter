@@ -8,10 +8,7 @@ import 'screens/authentication/startup.dart';
 import './screens/authentication/login.dart';
 import 'screens/authentication/sign_up.dart';
 import './screens/wrapper.dart';
-import './screens/home/tense_section.dart';
-import 'screens/home/profile.dart';
 import './widgets/typing_answer.dart';
-import './screens/home/grammar_section.dart';
 import './screens/home/home.dart';
 import 'widgets/word_meaning.dart';
 
@@ -85,10 +82,7 @@ class MyApp extends StatelessWidget {
           '/wrapper': (context) => Wrapper(),
           '/home': (context) => MyHomePage(),
           '/word': (context) => WordMeaning(),
-          '/grammar': (context) => GrammarSection(),
           '/typing': (context) => TypingWidget(),
-          '/profile': (context) => Profile(),
-          '/verbs': (context) => TenseSection(),
           '/signup': (context) => Signup(),
           '/startup': (context) => Startup(),
           '/login': (context) => Login(),

@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:provider/provider.dart';
 
 import '../../widgets/menu_icon.dart';
 
 class VocabularySection extends StatefulWidget {
+  final int wMeaningsLevel;
+  final int mChoiceLevel;
+  final int fitBlanksLevel;
+
+  VocabularySection(
+      {this.fitBlanksLevel, this.mChoiceLevel, this.wMeaningsLevel});
   @override
   _VocabularySectionState createState() => _VocabularySectionState();
 }
@@ -12,11 +16,15 @@ class VocabularySection extends StatefulWidget {
 class _VocabularySectionState extends State<VocabularySection> {
   @override
   Widget build(BuildContext context) {
-    final levels = Provider.of<QuerySnapshot>(context);
-    // print(levels.docs);
-    for (var doc in levels.docs) {
-      print(doc.data()['present']);
-    }
+    // final levels = Provider.of<List<Level>>(context);
+    // levels.forEach((level) {
+    //   print(level.name);
+    //   print(level.past);
+    //   print(level.present);
+    // });
+    // for (var doc in levels.docs) {
+    //   print(doc.data()['present']);
+    // }
     return Container(
       child: Column(
         //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -57,7 +65,7 @@ class _VocabularySectionState extends State<VocabularySection> {
           MenuItem(
             bgColor: Colors.deepOrangeAccent,
             imageLocation: 'assets/images/dictionary.png',
-            level: 1,
+            level: widget.wMeaningsLevel,
             menuLabel: 'Word Meanings',
           ),
           SizedBox(height: 30.0),
@@ -67,13 +75,13 @@ class _VocabularySectionState extends State<VocabularySection> {
               MenuItem(
                 bgColor: Colors.greenAccent,
                 imageLocation: 'assets/images/select.png',
-                level: 2,
+                level: widget.mChoiceLevel,
                 menuLabel: 'Multiple Choice',
               ),
               MenuItem(
                 bgColor: Colors.blueAccent,
                 imageLocation: 'assets/images/question_mark.png',
-                level: 3,
+                level: widget.fitBlanksLevel,
                 menuLabel: 'Fill in the blanks',
               ),
             ],

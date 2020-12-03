@@ -1,7 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:righter/widgets/menu_icon.dart';
 
-class GrammarSection extends StatelessWidget {
+class GrammarSection extends StatefulWidget {
+  final int articlesLevel;
+  final int prepositionsLevel;
+  final int punctuationsLevel;
+
+  GrammarSection(
+      {this.articlesLevel, this.prepositionsLevel, this.punctuationsLevel});
+
+  @override
+  _GrammarSectionState createState() => _GrammarSectionState();
+}
+
+class _GrammarSectionState extends State<GrammarSection> {
   @override
   Widget build(BuildContext context) {
     // return Container(
@@ -44,7 +56,7 @@ class GrammarSection extends StatelessWidget {
               MenuItem(
                 bgColor: Colors.deepOrangeAccent,
                 imageLocation: 'assets/images/the.png',
-                level: 1,
+                level: widget.articlesLevel,
                 menuLabel: 'Articles',
               ),
             ],
@@ -56,13 +68,13 @@ class GrammarSection extends StatelessWidget {
               MenuItem(
                 bgColor: Colors.greenAccent,
                 imageLocation: 'assets/images/prepositions.png',
-                level: 2,
+                level: widget.prepositionsLevel,
                 menuLabel: 'Prepositions',
               ),
               MenuItem(
                 bgColor: Colors.blueAccent,
                 imageLocation: 'assets/images/punctuations.png',
-                level: 3,
+                level: widget.punctuationsLevel,
                 menuLabel: 'Punctuations',
               )
             ],

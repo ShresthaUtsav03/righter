@@ -24,7 +24,6 @@ class AuthService {
       print('user found in datavase');
       return _userFromFirebaseUser(user);
     } on FirebaseAuthException catch (e) {
-      print("magic code called");
       if (e.code == 'user-not-found') {
         return null;
 
@@ -50,7 +49,7 @@ class AuthService {
 
       //create document for the user
       await DatabaseService(uid: user.uid)
-          .updateUserData(name, '1', '1', '1', '1', '1', '1', '1', '1', '1');
+          .updateUserData(name, 1, 1, 1, 1, 1, 1, 1, 1, 1);
       return _userFromFirebaseUser(user);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
