@@ -50,7 +50,10 @@ class MyHomePage extends StatelessWidget {
                         pastLevel: userData.past,
                         presentLevel: userData.present,
                       ),
-                      Profile(username: userData.name),
+                      Profile(
+                        username: userData.name,
+                        uid: userData.uid,
+                      ),
                     ],
                   ),
                 ),
