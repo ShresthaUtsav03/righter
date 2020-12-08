@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:righter/screens/services/auth.dart';
+import 'package:righter/services/auth.dart';
 import 'package:righter/shared/constants.dart';
 import 'package:righter/shared/loading.dart';
 

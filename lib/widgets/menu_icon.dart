@@ -30,7 +30,7 @@ class MenuItem extends StatelessWidget {
             child: InkWell(
               borderRadius: BorderRadius.circular(50.0),
               //onTap: () => print('yay'),
-              onTap: () => Navigator.pushNamed(context, '/typing'),
+              onTap: () => Navigator.pushNamed(context, '/quiz'),
             ),
             // child: Image.asset(
             //   imageLocation,

@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:righter/models/words.dart';
+import 'package:righter/services/database/words_DB.dart';
+import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
+import 'package:righter/shared/loading.dart';
 
 import '../../widgets/menu_icon.dart';
 
@@ -31,37 +35,36 @@ class _VocabularySectionState extends State<VocabularySection> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           InkWell(
-            onTap: () {
-              print("Learn new words wow!");
-              Navigator.pushNamed(context, '/word');
-            },
-            child: Card(
-              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 30),
-              elevation: 5.0,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(height: 20.0),
-                  Text(
-                    'Word of the day',
-                    style: Theme.of(context).textTheme.headline3,
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    'OBSTINATE',
-                    style: Theme.of(context).textTheme.headline4,
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    'adjective',
-                    style: Theme.of(context).textTheme.subtitle1,
-                  ),
-                  SizedBox(height: 20.0),
-                ],
-              ),
-            ),
-          ),
+              onTap: () {
+                //print("Learn new words wow!");
+                Navigator.pushNamed(context, '/word');
+              },
+              child: Card(
+                margin: EdgeInsets.symmetric(horizontal: 10, vertical: 30),
+                elevation: 5.0,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 20.0),
+                    Text(
+                      'Word of the day',
+                      style: Theme.of(context).textTheme.headline3,
+                    ),
+                    SizedBox(height: 10.0),
+                    Text(
+                      'OBSTINATE',
+                      style: Theme.of(context).textTheme.headline4,
+                    ),
+                    SizedBox(height: 10.0),
+                    Text(
+                      'noun',
+                      style: Theme.of(context).textTheme.subtitle1,
+                    ),
+                    SizedBox(height: 20.0),
+                  ],
+                ),
+              )),
           MenuItem(
             bgColor: Colors.deepOrangeAccent,
             imageLocation: 'assets/images/dictionary.png',

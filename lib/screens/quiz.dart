@@ -1,121 +1,76 @@
 import 'package:flutter/material.dart';
+import 'package:righter/widgets/optionBox.dart';
 
-class QuestionsMenu extends StatelessWidget {
+class Quiz extends StatefulWidget {
+  @override
+  _QuizState createState() => _QuizState();
+}
+
+class _QuizState extends State<Quiz> {
+  String question = 'I go to school ____________';
+  List<String> options = ['Everyday', 'every day', 'someday', 'some day'];
+
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey[800],
-      ),
-      body: Container(
-        child: Column(
-          children: <Widget>[],
-        ),
-      ),
-    );
-  }
-}
-
-class Quiz extends StatelessWidget {
-  final List<Map<String, Object>> questions;
-  final int questionIndex;
-  final Function answerQuestion;
-
-  Quiz(
-      {@required this.questions,
-      @required this.answerQuestion,
-      @required this.questionIndex});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Question(
-          questions[questionIndex]['question'],
-        ),
-        ...(questions[questionIndex]['options'] as List<Map<String, Object>>)
-            .map((option) {
-          return Answer(
-              () => answerQuestion(option['score']), option['option']);
-        }).toList()
-      ],
-    );
-  }
-}
-
-class Result extends StatelessWidget {
-  final int resultScore;
-  final Function resetHandler;
-
-  Result(this.resultScore, this.resetHandler);
-
-  String get resultPhrase {
-    String resultText;
-    if (resultScore >= 1) {
-      resultText = "You can start at level 2";
-    } else if (resultScore == 0) {
-      resultText = "You can start at level 1";
-    } else {
-      resultText = "Hmm";
-    }
-    return resultText;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        children: <Widget>[
-          Text(
-            resultPhrase,
-            style: TextStyle(fontSize: 36.0, fontWeight: FontWeight.bold),
-            textAlign: TextAlign.center,
-          ),
-          FlatButton(
-            child: Text('Restart Quiz'),
-            textColor: Colors.blue,
-            onPressed: resetHandler,
+        title: Text('Select the correct answer'),
+        actions: <Widget>[
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text('4/10'),
+              LinearProgressIndicator(
+                backgroundColor: Colors.grey,
+                minHeight: 20.0,
+              ),
+            ],
           )
         ],
       ),
-    );
-  }
-}
-
-class Answer extends StatelessWidget {
-  final Function selectHandler;
-  final String option;
-
-  Answer(this.selectHandler, this.option);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(10.0),
-      child: RaisedButton(
-        color: Colors.grey[800],
-        textColor: Colors.white,
-        child: Text(option),
-        onPressed: selectHandler,
-      ),
-    );
-  }
-}
-
-class Question extends StatelessWidget {
-  final String questionStatement;
-
-  Question(this.questionStatement);
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      margin: EdgeInsets.all(10.0),
-      child: Text(
-        questionStatement,
-        style: TextStyle(fontSize: 24.0),
-        textAlign: TextAlign.center,
-      ),
+      body: SafeArea(
+          child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(height: height * 0.021),
+          Text('4/10'),
+          SizedBox(height: height * 0.20),
+          Text(
+            question,
+            style: Theme.of(context)
+                .textTheme
+                .headline4
+                .copyWith(color: Colors.white),
+          ),
+          SizedBox(height: height * 0.08),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              OptionWidget(
+                optionInstance: options[0],
+              ),
+              OptionWidget(
+                optionInstance: options[1],
+              ),
+            ],
+          ),
+          SizedBox(height: height * 0.07),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              OptionWidget(
+                optionInstance: options[2],
+              ),
+              OptionWidget(
+                optionInstance: options[3],
+              ),
+            ],
+          ),
+        ],
+      )),
     );
   }
 }

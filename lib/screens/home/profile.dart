@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:righter/screens/services/auth.dart';
-import 'package:righter/screens/services/database.dart';
+import 'package:righter/services/auth.dart';
+import 'package:righter/services/database/database.dart';
 
 class Profile extends StatefulWidget {
   final String username;

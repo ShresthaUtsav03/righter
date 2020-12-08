@@ -1,16 +1,17 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:righter/screens/quiz.dart';
 
 import './models/user.dart';
-import './screens/services/auth.dart';
+import './services/auth.dart';
 import 'screens/authentication/startup.dart';
 import './screens/authentication/login.dart';
 import 'screens/authentication/sign_up.dart';
 import './screens/wrapper.dart';
 import './widgets/typing_answer.dart';
 import './screens/home/home.dart';
-import 'widgets/word_meaning.dart';
+import 'screens/word_meaning.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -86,6 +87,7 @@ class MyApp extends StatelessWidget {
           '/signup': (context) => Signup(),
           '/startup': (context) => Startup(),
           '/login': (context) => Login(),
+          '/quiz': (context) => Quiz(),
 
           //'/quiz': (context) => Ques
         },

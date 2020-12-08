@@ -1,6 +1,6 @@
 import 'package:animated_button/animated_button.dart';
 import 'package:flutter/material.dart';
-import 'package:righter/screens/services/auth.dart';
+import '../../services/auth.dart';
 import 'package:righter/shared/constants.dart';
 import 'package:righter/shared/loading.dart';
 
@@ -147,7 +147,7 @@ class _LoginState extends State<Login> {
                                       });
                                       dynamic result = await _authService
                                           .signInWithEmail(email, password);
-                                      print(result);
+                                      //print(result);
                                       if (result == null) {
                                         setState(() {
                                           loading = false;

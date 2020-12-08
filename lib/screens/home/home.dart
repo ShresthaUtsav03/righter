@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:righter/models/user.dart';
 import 'package:provider/provider.dart';
-import 'package:righter/screens/services/database.dart';
+import 'package:righter/services/database/database.dart';
 import 'package:righter/shared/loading.dart';
 
 import './tense_section.dart';
