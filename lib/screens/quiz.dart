@@ -12,7 +12,7 @@ class _QuizState extends State<Quiz> {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
+    //double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
@@ -38,37 +38,41 @@ class _QuizState extends State<Quiz> {
           SizedBox(height: height * 0.021),
           Text('4/10'),
           SizedBox(height: height * 0.20),
-          Text(
-            question,
-            style: Theme.of(context)
-                .textTheme
-                .headline4
-                .copyWith(color: Colors.white),
-          ),
-          SizedBox(height: height * 0.08),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              OptionWidget(
-                optionInstance: options[0],
+          Center(
+            child: Column(children: [
+              Text(
+                question,
+                style: Theme.of(context)
+                    .textTheme
+                    .headline4
+                    .copyWith(color: Colors.white),
               ),
-              OptionWidget(
-                optionInstance: options[1],
+              SizedBox(height: height * 0.08),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  OptionWidget(
+                    optionInstance: options[0],
+                  ),
+                  OptionWidget(
+                    optionInstance: options[1],
+                  ),
+                ],
               ),
-            ],
-          ),
-          SizedBox(height: height * 0.07),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              OptionWidget(
-                optionInstance: options[2],
+              SizedBox(height: height * 0.07),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  OptionWidget(
+                    optionInstance: options[2],
+                  ),
+                  OptionWidget(
+                    optionInstance: options[3],
+                  ),
+                ],
               ),
-              OptionWidget(
-                optionInstance: options[3],
-              ),
-            ],
-          ),
+            ]),
+          )
         ],
       )),
     );

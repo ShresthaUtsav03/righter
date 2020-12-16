@@ -1,37 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:righter/services/database/database.dart';
 import 'package:righter/shared/loading.dart';
+import 'package:righter/widgets/word_nav_button.dart';
 
 class WordMeaning extends StatelessWidget {
-  FirebaseFirestore firestore = FirebaseFirestore.instance;
+  final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-  CollectionReference wordData =
+  final CollectionReference wordData =
       FirebaseFirestore.instance.collection('vocabulary');
-
-  final word = 'Obstinate';
-  final group = 'Adjective';
-  final meaning =
-      'stubbornly refusing to change one\'s opinion or chosen course of action, despite attempts to persuade one to do so.';
-  final synonyms = [
-    'stubborn',
-    'headstrong',
-    'willful',
-    'unyielding',
-    'inflexible',
-    'unbending'
-  ];
-
-  final uses = [
-    'An obstinate person is difficult to persuade.',
-    'My obstinate brother refuses to listen to vegan arguments'
-  ];
-  final documentId = '1';
+  String wordId = '';
+  String uid = '';
+  Map receivedPara = {};
 
   @override
   Widget build(BuildContext context) {
+    //double height = MediaQuery.of(context).size.height;
+    receivedPara = ModalRoute.of(context).settings.arguments;
+    //print(receivedPara);
+    wordId = receivedPara['wordId'].toString();
+    uid = receivedPara['uid'];
+
     return FutureBuilder<DocumentSnapshot>(
-        future: wordData.doc(documentId).get(),
+        future: wordData.doc(wordId).get(),
         builder:
             (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
           if (snapshot.hasError) {
@@ -83,23 +74,18 @@ class WordMeaning extends StatelessWidget {
                           '- ' + eg,
                           style: Theme.of(context).textTheme.bodyText2,
                         ),
-                      SizedBox(height: 20.0),
-                      RaisedButton(
-                        onPressed: () {},
-                        child: Text(
-                          'Try it out!',
-                          style: TextStyle(
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        color: Colors.yellow[200],
-                      )
+                      SizedBox(height: 40.0),
+                      // Text(
+                      //   'Feeling confident?',
+                      //   style: Theme.of(context).textTheme.subtitle1,
+                      // ),
+                      SizedBox(height: 10.0),
+                      WordNavButtons(uid: uid)
                     ],
                   )),
             );
           }
-          return Loading();
+          return Container();
         });
   }
 }

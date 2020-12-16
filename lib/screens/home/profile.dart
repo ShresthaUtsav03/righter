@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:righter/services/auth.dart';
 import 'package:righter/services/database/database.dart';
@@ -5,7 +6,9 @@ import 'package:righter/services/database/database.dart';
 class Profile extends StatefulWidget {
   final String username;
   final String uid;
-  Profile({this.username, this.uid});
+  final int streak;
+
+  Profile({this.streak, this.username, this.uid});
   @override
   _ProfileState createState() => _ProfileState();
 }
@@ -15,11 +18,17 @@ class _ProfileState extends State<Profile> {
   final AuthService _authService = AuthService();
   final _formKey = GlobalKey<FormState>();
   String _currentName;
+  String _userEmail;
+
+  User user = FirebaseAuth.instance.currentUser;
 
   @override
   Widget build(BuildContext context) {
     //double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+    if (user != null) {
+      _userEmail = user.email;
+    }
     void _showEditingPanel() {
       showModalBottomSheet(
           context: context,
@@ -146,7 +155,7 @@ class _ProfileState extends State<Profile> {
               ),
               SizedBox(height: 10.0),
               Text(
-                '30 days',
+                widget.streak.toString() + ' days',
                 style: Theme.of(context).textTheme.headline4,
               ),
               SizedBox(height: 30.0),
@@ -160,8 +169,11 @@ class _ProfileState extends State<Profile> {
                     width: 10.0,
                   ),
                   Text(
-                    'brucelee@1inch.punch',
-                    style: Theme.of(context).textTheme.subtitle1,
+                    _userEmail,
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText2
+                        .copyWith(fontWeight: FontWeight.bold),
                   ),
                 ],
               ),

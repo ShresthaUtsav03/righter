@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:righter/widgets/bonus_tips_card.dart';
 import 'package:righter/widgets/menu_icon.dart';
 
 class GrammarSection extends StatefulWidget {
@@ -24,30 +25,28 @@ class _GrammarSectionState extends State<GrammarSection> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          Card(
-            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 30),
-            elevation: 5.0,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(height: 20.0),
-                Text(
-                  'Tip of the day',
-                  style: Theme.of(context).textTheme.headline3,
-                ),
-                SizedBox(height: 10.0),
-                Text(
-                  'Everyday vs Every day',
-                  style: Theme.of(context).textTheme.headline4,
-                ),
-                SizedBox(height: 10.0),
-                Text(
-                  'Yes there is a difference!',
-                  style: Theme.of(context).textTheme.subtitle1,
-                ),
-                SizedBox(height: 20.0),
-              ],
+          InkWell(
+            onTap: () {
+              print('object');
+              Navigator.pushNamed(context, '/bonus');
+            },
+            child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 30),
+              elevation: 5.0,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(height: 20.0),
+                  Text(
+                    'Bonus tips',
+                    style: Theme.of(context).textTheme.headline3,
+                  ),
+                  SizedBox(height: 10.0),
+                  BonusTip(),
+                  SizedBox(height: 20.0),
+                ],
+              ),
             ),
           ),
           Row(

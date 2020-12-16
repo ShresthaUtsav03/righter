@@ -24,6 +24,7 @@ class MyHomePage extends StatelessWidget {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               UserData userData = snapshot.data;
+
               return Scaffold(
                 //backgroundColor: Colors.grey[800],
                 // appBar: AppBar(
@@ -37,6 +38,8 @@ class MyHomePage extends StatelessWidget {
                   child: TabBarView(
                     children: <Widget>[
                       VocabularySection(
+                        uid: userData.uid,
+                        wordDay: userData.wordDay,
                         fitBlanksLevel: userData.fitBlanks,
                         mChoiceLevel: userData.mChoice,
                         wMeaningsLevel: userData.wMeanings,
@@ -51,6 +54,7 @@ class MyHomePage extends StatelessWidget {
                         presentLevel: userData.present,
                       ),
                       Profile(
+                        streak: userData.streakDay,
                         username: userData.name,
                         uid: userData.uid,
                       ),

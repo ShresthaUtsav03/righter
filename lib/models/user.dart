@@ -7,6 +7,8 @@ class CustomUser {
 class UserData {
   final String uid;
   final String name;
+  final int wordDay;
+  final int streakDay;
   final int wMeanings;
   final int mChoice;
   final int fitBlanks;
@@ -20,6 +22,8 @@ class UserData {
   UserData(
       {this.uid,
       this.name,
+      this.wordDay,
+      this.streakDay,
       this.wMeanings,
       this.mChoice,
       this.fitBlanks,

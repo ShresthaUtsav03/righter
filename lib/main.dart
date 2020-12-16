@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:righter/screens/bonus_tips_page.dart';
 import 'package:righter/screens/quiz.dart';
 
 import './models/user.dart';
@@ -88,6 +89,7 @@ class MyApp extends StatelessWidget {
           '/startup': (context) => Startup(),
           '/login': (context) => Login(),
           '/quiz': (context) => Quiz(),
+          '/bonus': (context) => BonusTipsPage(),
 
           //'/quiz': (context) => Ques
         },
