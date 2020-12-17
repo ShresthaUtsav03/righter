@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:righter/services/database/database.dart';
-import 'package:righter/widgets/word_nav_button.dart';
 
-class WordOfTheDay extends StatelessWidget {
+class WordOfTheDay extends StatefulWidget {
+  String wordId;
+  String uid;
+
+  WordOfTheDay({this.wordId, this.uid});
+
+  @override
+  _WordOfTheDayState createState() => _WordOfTheDayState();
+}
+
+class _WordOfTheDayState extends State<WordOfTheDay> {
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   final CollectionReference tipData =
       FirebaseFirestore.instance.collection('vocabulary');
 
-  final String wordId;
-  final String uid;
-
-  WordOfTheDay({this.wordId, this.uid});
-
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<DocumentSnapshot>(
-      future: tipData.doc(wordId).get(),
+      future: tipData.doc(widget.wordId).get(),
       builder:
           (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
         if (snapshot.hasError) {
@@ -38,24 +42,43 @@ class WordOfTheDay extends StatelessWidget {
                           .subtitle1
                           .copyWith(color: Colors.amberAccent),
                     ),
+                    RaisedButton(
+                      onPressed: () async {
+                        await DatabaseService(uid: widget.uid).downWord();
+                        setState(() {
+                          widget.wordId =
+                              (int.parse(widget.wordId) - 1).toString();
+                        });
+                      },
+                      child: Text(
+                        'Previous word',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      color: Theme.of(context).accentColor,
+                    ),
                     //WordNavButtons(uid: uid)
                   ],
                 )
-              : GestureDetector(
+              : InkWell(
                   onTap: () {
                     //print("Learn new words wow!");
-                    Navigator.pushNamed(context, '/word',
-                        arguments: {'wordId': wordId, 'uid': uid});
+                    Navigator.pushNamed(context, '/word', arguments: {
+                      'wordId': widget.wordId,
+                      'uid': widget.uid
+                    });
                   },
                   child: Column(
                     children: [
                       Text(
-                        data['Word'].toString().toUpperCase(),
+                        data['word'].toString().toUpperCase(),
                         style: Theme.of(context).textTheme.headline4,
                       ),
                       SizedBox(height: 10.0),
                       Text(
-                        data['Category'],
+                        data['category'],
                         style: Theme.of(context).textTheme.subtitle1,
                       ),
                     ],

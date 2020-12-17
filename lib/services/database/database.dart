@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:righter/models/levels.dart';
 import 'package:righter/models/user.dart';
 
 class DatabaseService {
@@ -16,6 +15,7 @@ class DatabaseService {
     return UserData(
       uid: uid,
       streakDay: snapshot.data()['streakDay'],
+      bonusDay: snapshot.data()['bonusDay'],
       wordDay: snapshot.data()['wordDay'],
       fitBlanks: snapshot.data()['fitBlanks'],
       articles: snapshot.data()['articles'],
@@ -67,6 +67,7 @@ class DatabaseService {
   Future updateUserData(
       String name,
       int wordDay,
+      int bonusDay,
       int streakDay,
       int wMeanings,
       int mChoice,
@@ -81,6 +82,7 @@ class DatabaseService {
       {
         'name': name,
         'wordDay': wordDay,
+        'bonusDay': bonusDay,
         'streakDay': streakDay,
         'articles': articles,
         'fitBlanks': fitBlanks,

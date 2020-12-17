@@ -8,11 +8,15 @@ class BonusTip extends StatelessWidget {
   final CollectionReference tipData =
       FirebaseFirestore.instance.collection('bonus');
 
-  final documentId = '1';
+  int bonusId;
+  String uid;
+
+  BonusTip({this.bonusId, this.uid});
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<DocumentSnapshot>(
-      future: tipData.doc(documentId).get(),
+      future: tipData.doc(bonusId.toString()).get(),
       builder:
           (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
         if (snapshot.hasError) {

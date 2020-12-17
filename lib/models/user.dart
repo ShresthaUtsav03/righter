@@ -8,6 +8,7 @@ class UserData {
   final String uid;
   final String name;
   final int wordDay;
+  final int bonusDay;
   final int streakDay;
   final int wMeanings;
   final int mChoice;
@@ -23,6 +24,7 @@ class UserData {
       {this.uid,
       this.name,
       this.wordDay,
+      this.bonusDay,
       this.streakDay,
       this.wMeanings,
       this.mChoice,

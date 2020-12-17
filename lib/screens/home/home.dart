@@ -16,7 +16,7 @@ class MyHomePage extends StatelessWidget {
     final user = Provider.of<CustomUser>(context);
 
     return DefaultTabController(
-      length: 4,
+      length: 3,
       // child: StreamProvider<DocumentSnapshot>.value(
       //value: DatabaseService().levels,
       child: StreamBuilder<UserData>(
@@ -44,15 +44,25 @@ class MyHomePage extends StatelessWidget {
                         mChoiceLevel: userData.mChoice,
                         wMeaningsLevel: userData.wMeanings,
                       ),
-                      GrammarSection(
-                          articlesLevel: userData.articles,
-                          prepositionsLevel: userData.prepositions,
-                          punctuationsLevel: userData.punctuations),
-                      TenseSection(
-                        futureLevel: userData.future,
-                        pastLevel: userData.past,
-                        presentLevel: userData.present,
+                      ListView(
+                        children: [
+                          GrammarSection(
+                            uid: userData.uid,
+                            bonusId: userData.bonusDay,
+                            articlesLevel: userData.articles,
+                            prepositionsLevel: userData.prepositions,
+                            punctuationsLevel: userData.punctuations,
+                            futureLevel: userData.future,
+                            pastLevel: userData.past,
+                            presentLevel: userData.present,
+                          ),
+                        ],
                       ),
+                      // TenseSection(
+                      //   futureLevel: userData.future,
+                      //   pastLevel: userData.past,
+                      //   presentLevel: userData.present,
+                      // ),
                       Profile(
                         streak: userData.streakDay,
                         username: userData.name,
@@ -71,9 +81,9 @@ class MyHomePage extends StatelessWidget {
                     Tab(
                       icon: Icon(Icons.category),
                     ),
-                    Tab(
-                      icon: Icon(Icons.group_work),
-                    ),
+                    // Tab(
+                    //   icon: Icon(Icons.group_work),
+                    // ),
                     Tab(
                       icon: Icon(Icons.perm_identity),
                     )

@@ -42,9 +42,10 @@ class MyApp extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
                 headline3: TextStyle(
-                  color: Colors.white,
-                  fontSize: 34.0,
-                ),
+                    color: Colors.white,
+                    fontSize: 34.0,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 2.0),
                 subtitle1: TextStyle(
                   //fontFamily: 'OpenSans',
                   color: Colors.white,
