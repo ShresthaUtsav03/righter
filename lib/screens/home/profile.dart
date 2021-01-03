@@ -1,14 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:righter/services/auth.dart';
+import 'package:righter/services/authentication/auth.dart';
 import 'package:righter/services/database/database.dart';
 
 class Profile extends StatefulWidget {
   final String username;
   final String uid;
   final int streak;
+  final int level;
 
-  Profile({this.streak, this.username, this.uid});
+  Profile({this.level, this.streak, this.username, this.uid});
   @override
   _ProfileState createState() => _ProfileState();
 }
@@ -75,6 +76,20 @@ class _ProfileState extends State<Profile> {
           });
     }
 
+    String _getLeague(level) {
+      if (level <= 10) {
+        return 'Silver';
+      } else if (level <= 20) {
+        return 'Gold';
+      } else if (level <= 30) {
+        return 'Platinum';
+      } else if (level <= 40) {
+        return 'Diamond';
+      } else {
+        return 'God';
+      }
+    }
+
     return SingleChildScrollView(
       child: Container(
         child: Padding(
@@ -129,7 +144,7 @@ class _ProfileState extends State<Profile> {
               ),
               SizedBox(height: 10.0),
               Text(
-                '8',
+                widget.level.toString(),
                 style: Theme.of(context).textTheme.headline4,
               ),
               SizedBox(height: 30.0),
@@ -142,7 +157,7 @@ class _ProfileState extends State<Profile> {
               ),
               SizedBox(height: 10.0),
               Text(
-                'Gold',
+                _getLeague(widget.level),
                 style: Theme.of(context).textTheme.headline4,
               ),
               SizedBox(height: 30.0),
