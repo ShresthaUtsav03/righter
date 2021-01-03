@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:righter/screens/home/home.dart';
 import 'package:righter/models/user.dart';
-import './authentication/authenticate.dart';
+import 'authenticate.dart';
 
 class Wrapper extends StatelessWidget {
   @override

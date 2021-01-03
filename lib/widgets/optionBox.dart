@@ -9,19 +9,19 @@ class OptionWidget extends StatelessWidget {
     return ButtonTheme(
       minWidth: width * 0.39,
       child: OutlineButton(
-        splashColor: Colors.grey,
+        //splashColor: Colors.deepOrangeAccent,
         disabledBorderColor: Colors.grey,
-        focusColor: Colors.amberAccent,
-        highlightedBorderColor: Colors.amberAccent,
+        focusColor: Colors.deepOrangeAccent,
+        highlightedBorderColor: Colors.deepOrangeAccent,
         padding: EdgeInsets.all(20.0),
         onPressed: () {},
-        borderSide: BorderSide(width: 1.0, color: Colors.grey),
+        borderSide: BorderSide(width: 1.0, color: Colors.white),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
         child: Text(
           optionInstance,
-          style: Theme.of(context).textTheme.bodyText2.copyWith(fontSize: 20.0),
+          style: Theme.of(context).textTheme.subtitle1,
         ),
       ),
     );

@@ -4,11 +4,23 @@ class TypingWidget extends StatelessWidget {
   final answerController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Container(
         margin: EdgeInsets.all(40.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            SizedBox(height: height * 0.021),
+            Text(
+              '4/10',
+              style: Theme.of(context)
+                  .textTheme
+                  .headline5
+                  .copyWith(color: Colors.white),
+            ),
+            SizedBox(height: height * 0.20),
             TextField(
               controller: answerController,
               decoration: InputDecoration(labelText: 'Your answer'),

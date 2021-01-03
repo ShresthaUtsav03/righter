@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:righter/services/database/database.dart';
 import 'package:righter/shared/loading.dart';
 
-import './tense_section.dart';
 import './grammar_section.dart';
 import 'profile.dart';
 import './vocabulary_section.dart';
@@ -48,7 +47,6 @@ class MyHomePage extends StatelessWidget {
                         children: [
                           GrammarSection(
                             uid: userData.uid,
-                            bonusId: userData.bonusDay,
                             articlesLevel: userData.articles,
                             prepositionsLevel: userData.prepositions,
                             punctuationsLevel: userData.punctuations,
@@ -64,6 +62,7 @@ class MyHomePage extends StatelessWidget {
                       //   presentLevel: userData.present,
                       // ),
                       Profile(
+                        level: userData.level,
                         streak: userData.streakDay,
                         username: userData.name,
                         uid: userData.uid,

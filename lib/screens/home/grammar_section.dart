@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:righter/widgets/bonus_tips_card.dart';
 import 'package:righter/widgets/menu_icon.dart';
 
 class GrammarSection extends StatelessWidget {

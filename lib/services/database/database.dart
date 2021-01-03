@@ -15,7 +15,7 @@ class DatabaseService {
     return UserData(
       uid: uid,
       streakDay: snapshot.data()['streakDay'],
-      bonusDay: snapshot.data()['bonusDay'],
+      level: snapshot.data()['level'],
       wordDay: snapshot.data()['wordDay'],
       fitBlanks: snapshot.data()['fitBlanks'],
       articles: snapshot.data()['articles'],
@@ -67,7 +67,7 @@ class DatabaseService {
   Future updateUserData(
       String name,
       int wordDay,
-      int bonusDay,
+      int level,
       int streakDay,
       int wMeanings,
       int mChoice,
@@ -82,7 +82,7 @@ class DatabaseService {
       {
         'name': name,
         'wordDay': wordDay,
-        'bonusDay': bonusDay,
+        'level': level,
         'streakDay': streakDay,
         'articles': articles,
         'fitBlanks': fitBlanks,

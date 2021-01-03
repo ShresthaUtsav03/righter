@@ -1,15 +1,14 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:righter/screens/bonus_tips_page.dart';
 import 'package:righter/screens/quiz.dart';
 
 import './models/user.dart';
-import './services/auth.dart';
+import 'services/authentication/auth.dart';
 import 'screens/authentication/startup.dart';
 import './screens/authentication/login.dart';
 import 'screens/authentication/sign_up.dart';
-import './screens/wrapper.dart';
+import 'navigators/wrapper.dart';
 import './widgets/typing_answer.dart';
 import './screens/home/home.dart';
 import 'screens/word_meaning.dart';
@@ -90,7 +89,6 @@ class MyApp extends StatelessWidget {
           '/startup': (context) => Startup(),
           '/login': (context) => Login(),
           '/quiz': (context) => Quiz(),
-          '/bonus': (context) => BonusTipsPage(),
 
           //'/quiz': (context) => Ques
         },

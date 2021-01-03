@@ -42,6 +42,7 @@ class _WordOfTheDayState extends State<WordOfTheDay> {
                           .subtitle1
                           .copyWith(color: Colors.amberAccent),
                     ),
+                    SizedBox(height: 5.0),
                     RaisedButton(
                       onPressed: () async {
                         await DatabaseService(uid: widget.uid).downWord();

@@ -46,7 +46,7 @@ class VocabularySection extends StatelessWidget {
                 children: [
                   SizedBox(height: 20.0),
                   Text(
-                    'Word of the day',
+                    'Learn new words!',
                     style: Theme.of(context).textTheme.headline3,
                   ),
                   SizedBox(height: 10.0),

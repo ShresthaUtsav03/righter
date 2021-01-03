@@ -32,6 +32,8 @@ class AuthService {
         return null;
 
         //print('Wrong password provided for that user.');
+      } else {
+        return null;
       }
     } catch (e) {
       print(e.toString());
@@ -60,6 +62,8 @@ class AuthService {
         return null;
 
         //print('Wrong password provided for that user.');
+      } else {
+        return null;
       }
     } catch (e) {
       print(e.toString());

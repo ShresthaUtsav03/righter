@@ -1,6 +1,6 @@
 import 'package:animated_button/animated_button.dart';
 import 'package:flutter/material.dart';
-import '../../services/auth.dart';
+import '../../services/authentication/auth.dart';
 import 'package:righter/shared/constants.dart';
 import 'package:righter/shared/loading.dart';
 
@@ -118,7 +118,7 @@ class _LoginState extends State<Login> {
                                 }
                               },
                               changeFunction: (val) {
-                                setState(() => password = val);
+                                setState(() => password = val.trim());
                               },
                             ),
                             SizedBox(

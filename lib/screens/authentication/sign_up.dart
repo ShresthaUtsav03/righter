@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:righter/services/auth.dart';
+import 'package:righter/services/authentication/auth.dart';
 import 'package:righter/shared/constants.dart';
 import 'package:righter/shared/loading.dart';
 
@@ -93,16 +93,17 @@ class _SignupState extends State<Signup> {
                             hint: 'Enter a nickname',
                             issecured: false,
                             changeFunction: (val) {
-                              setState(() => name = val);
+                              setState(() => name = val.trim());
                             },
-                            validateFunction: (val) =>
-                                val.isEmpty ? 'Field cannot be empty' : null,
+                            validateFunction: (val) => val.trim().isEmpty
+                                ? 'Field cannot be empty'
+                                : null,
                           ),
                           Customtextfield(
                               hint: 'Enter your email',
                               issecured: false,
                               changeFunction: (val) {
-                                setState(() => email = val);
+                                setState(() => email = val.trim());
                               },
                               validateFunction: (val) {
                                 bool emailValid = RegExp(
