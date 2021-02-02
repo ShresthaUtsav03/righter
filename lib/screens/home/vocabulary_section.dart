@@ -79,6 +79,19 @@ class VocabularySection extends StatelessWidget {
               ),
             ],
           ),
+          Spacer(),
+          RaisedButton(
+            child: Text("Add"),
+            onPressed: () {
+              Navigator.pushNamed(
+                context, '/addQuiz',
+                // arguments: {
+                //           'wordId': widget.wordId,
+                //           'uid': widget.uid
+                //         }
+              );
+            },
+          )
         ],
       ),
     );

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:righter/services/authentication/auth.dart';
 import 'package:righter/services/database/database.dart';
 
+import 'dart:io';
+
 class Profile extends StatefulWidget {
   final String username;
   final String uid;
@@ -20,6 +22,7 @@ class _ProfileState extends State<Profile> {
   final _formKey = GlobalKey<FormState>();
   String _currentName;
   String _userEmail;
+  File image;
 
   User user = FirebaseAuth.instance.currentUser;
 
