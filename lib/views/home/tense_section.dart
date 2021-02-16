@@ -26,6 +26,7 @@ class _TenseSectionState extends State<TenseSection> {
                 imageLocation: 'assets/images/present.png',
                 level: widget.presentLevel,
                 menuLabel: 'Present tense',
+                quizId: 'present',
               ),
             ],
           ),
@@ -38,12 +39,14 @@ class _TenseSectionState extends State<TenseSection> {
                 imageLocation: 'assets/images/past.png',
                 level: widget.pastLevel,
                 menuLabel: 'Past tense',
+                quizId: 'past',
               ),
               MenuItem(
                 bgColor: Colors.blueAccent,
                 imageLocation: 'assets/images/future.png',
                 level: widget.futureLevel,
                 menuLabel: 'Future tense',
+                quizId: 'future',
               ),
             ],
           )

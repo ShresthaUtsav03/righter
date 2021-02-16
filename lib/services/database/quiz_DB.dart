@@ -11,4 +11,12 @@ class QuizDatabaseService {
       print(e);
     });
   }
+
+  getQuestionData(String quizId) async {
+    return await FirebaseFirestore.instance
+        .collection("quiz")
+        .doc(quizId)
+        .collection("1")
+        .get();
+  }
 }

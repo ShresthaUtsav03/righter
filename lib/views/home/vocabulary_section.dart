@@ -60,6 +60,7 @@ class VocabularySection extends StatelessWidget {
             imageLocation: 'assets/images/dictionary.png',
             level: wMeaningsLevel,
             menuLabel: 'Word Meanings',
+            quizId: 'wMeanings',
           ),
           SizedBox(height: 30.0),
           Row(
@@ -70,28 +71,36 @@ class VocabularySection extends StatelessWidget {
                 imageLocation: 'assets/images/select.png',
                 level: mChoiceLevel,
                 menuLabel: 'Multiple Choice',
+                quizId: 'mChoice',
               ),
               MenuItem(
                 bgColor: Colors.blueAccent,
                 imageLocation: 'assets/images/question_mark.png',
                 level: fitBlanksLevel,
                 menuLabel: 'Fill in the blanks',
+                quizId: 'fitBlanks',
               ),
             ],
           ),
           Spacer(),
           RaisedButton(
-            child: Text("Add"),
+            child: Text("Add quiz"),
             onPressed: () {
               Navigator.pushNamed(
-                context, '/addQuiz',
-                // arguments: {
-                //           'wordId': widget.wordId,
-                //           'uid': widget.uid
-                //         }
+                context,
+                '/addQuiz',
               );
             },
-          )
+          ),
+          RaisedButton(
+            child: Text("Add Word"),
+            onPressed: () {
+              Navigator.pushNamed(
+                context,
+                '/addWord',
+              );
+            },
+          ),
         ],
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:righter/views/quiz/play_quiz.dart';
 
 class MenuItem extends StatelessWidget {
   final int level;
@@ -6,13 +7,15 @@ class MenuItem extends StatelessWidget {
   final Color bgColor;
   final String imageLocation;
   final double iconSize;
+  final String quizId;
 
   MenuItem(
-      {this.bgColor,
+      {@required this.bgColor,
       this.iconSize,
-      this.imageLocation,
-      this.menuLabel,
-      this.level});
+      @required this.imageLocation,
+      @required this.menuLabel,
+      @required this.level,
+      @required this.quizId});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +33,11 @@ class MenuItem extends StatelessWidget {
             child: InkWell(
               borderRadius: BorderRadius.circular(50.0),
               //onTap: () => print('yay'),
-              onTap: () => Navigator.pushNamed(context, '/quiz'),
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Quiz(quizId, menuLabel)),
+              ),
             ),
             // child: Image.asset(
             //   imageLocation,

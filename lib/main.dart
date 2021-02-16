@@ -1,19 +1,18 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:righter/screens/add_question.dart';
-import 'package:righter/screens/add_quiz.dart';
-import 'package:righter/screens/quiz.dart';
+import 'package:righter/views/quiz/add_question.dart';
+import 'package:righter/views/quiz/add_quiz.dart';
 
 import './models/user.dart';
 import 'services/authentication/auth.dart';
-import 'screens/authentication/startup.dart';
-import './screens/authentication/login.dart';
-import 'screens/authentication/sign_up.dart';
+import 'views/authentication/startup.dart';
+import './views/authentication/login.dart';
+import 'views/authentication/sign_up.dart';
 import 'navigators/wrapper.dart';
 import './widgets/typing_answer.dart';
-import './screens/home/home.dart';
-import 'screens/word_meaning.dart';
+import './views/home/home.dart';
+import 'views/word_meaning.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -90,9 +89,9 @@ class MyApp extends StatelessWidget {
           '/signup': (context) => Signup(),
           '/startup': (context) => Startup(),
           '/login': (context) => Login(),
-          '/quiz': (context) => Quiz(),
           '/addQuestion': (context) => AddQuestion(),
           '/addQuiz': (context) => AddQuiz(),
+          //'/addWord': (context) => AddWords(),
         },
       ),
     );

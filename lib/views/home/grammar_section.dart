@@ -50,6 +50,7 @@ class GrammarSection extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               MenuItem(
+                quizId: 'present',
                 bgColor: Colors.deepOrangeAccent,
                 imageLocation: 'assets/images/present.png',
                 level: presentLevel,
@@ -67,12 +68,14 @@ class GrammarSection extends StatelessWidget {
                 imageLocation: 'assets/images/past.png',
                 level: pastLevel,
                 menuLabel: 'Past tense',
+                quizId: 'past',
               ),
               MenuItem(
                 bgColor: Colors.blueAccent,
                 imageLocation: 'assets/images/future.png',
                 level: futureLevel,
                 menuLabel: 'Future tense',
+                quizId: 'future',
               ),
             ],
           ),
@@ -120,6 +123,7 @@ class GrammarSection extends StatelessWidget {
                 imageLocation: 'assets/images/the.png',
                 level: articlesLevel,
                 menuLabel: 'Articles',
+                quizId: 'articles',
               ),
             ],
           ),
@@ -132,12 +136,14 @@ class GrammarSection extends StatelessWidget {
                 imageLocation: 'assets/images/prepositions.png',
                 level: prepositionsLevel,
                 menuLabel: 'Prepositions',
+                quizId: 'prepositions',
               ),
               MenuItem(
                 bgColor: Colors.blueAccent,
                 imageLocation: 'assets/images/punctuations.png',
                 level: punctuationsLevel,
                 menuLabel: 'Punctuations',
+                quizId: 'punctuations',
               )
             ],
           ),

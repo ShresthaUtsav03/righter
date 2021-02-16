@@ -4,7 +4,7 @@ import 'package:righter/services/database/database.dart';
 
 class WordOfTheDay extends StatefulWidget {
   String wordId;
-  String uid;
+  final String uid;
 
   WordOfTheDay({this.wordId, this.uid});
 
