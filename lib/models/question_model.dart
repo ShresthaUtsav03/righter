@@ -6,4 +6,5 @@ class QuestionModel {
   String option4;
   String correctAnswer;
   bool answered;
+  String hint;
 }

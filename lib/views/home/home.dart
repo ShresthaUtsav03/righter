@@ -39,7 +39,7 @@ class MyHomePage extends StatelessWidget {
                       VocabularySection(
                         uid: userData.uid,
                         wordDay: userData.wordDay,
-                        fitBlanksLevel: userData.fitBlanks,
+                        confusingLevel: userData.confusing,
                         mChoiceLevel: userData.mChoice,
                         wMeaningsLevel: userData.wMeanings,
                       ),

@@ -7,12 +7,12 @@ class VocabularySection extends StatelessWidget {
   final int wordDay;
   final int wMeaningsLevel;
   final int mChoiceLevel;
-  final int fitBlanksLevel;
+  final int confusingLevel;
 
   VocabularySection(
       {this.uid,
       this.wordDay,
-      this.fitBlanksLevel,
+      this.confusingLevel,
       this.mChoiceLevel,
       this.wMeaningsLevel});
 
@@ -76,9 +76,9 @@ class VocabularySection extends StatelessWidget {
               MenuItem(
                 bgColor: Colors.blueAccent,
                 imageLocation: 'assets/images/question_mark.png',
-                level: fitBlanksLevel,
-                menuLabel: 'Fill in the blanks',
-                quizId: 'fitBlanks',
+                level: confusingLevel,
+                menuLabel: 'Confusing',
+                quizId: 'confusing',
               ),
             ],
           ),

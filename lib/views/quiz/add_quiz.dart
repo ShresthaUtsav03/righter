@@ -35,10 +35,10 @@ class AddQuiz extends StatelessWidget {
                   });
                 }),
             RaisedButton(
-                child: Text('Fill in the Blanks'),
+                child: Text('Confusing terms'),
                 onPressed: () {
                   Navigator.pushNamed(context, '/addQuestion', arguments: {
-                    'quizId': 'fitBlanks',
+                    'quizId': 'confusing',
                   });
                 }),
             RaisedButton(
@@ -60,6 +60,27 @@ class AddQuiz extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, '/addQuestion', arguments: {
                     'quizId': 'future',
+                  });
+                }),
+            RaisedButton(
+                child: Text('Articles'),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/addQuestion', arguments: {
+                    'quizId': 'articles',
+                  });
+                }),
+            RaisedButton(
+                child: Text('Prepositions'),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/addQuestion', arguments: {
+                    'quizId': 'prepositions',
+                  });
+                }),
+            RaisedButton(
+                child: Text('Conjunctions'),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/addQuestion', arguments: {
+                    'quizId': 'conjunctions',
                   });
                 }),
           ],

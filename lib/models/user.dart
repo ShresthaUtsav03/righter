@@ -12,7 +12,7 @@ class UserData {
   final int streakDay;
   final int wMeanings;
   final int mChoice;
-  final int fitBlanks;
+  final int confusing;
   final int articles;
   final int prepositions;
   final int punctuations;
@@ -28,7 +28,7 @@ class UserData {
       this.streakDay,
       this.wMeanings,
       this.mChoice,
-      this.fitBlanks,
+      this.confusing,
       this.articles,
       this.prepositions,
       this.punctuations,

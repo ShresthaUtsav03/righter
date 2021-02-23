@@ -9,11 +9,6 @@ import 'package:righter/widgets/optionBox.dart';
 class Quiz extends StatefulWidget {
   final String quizId, quizLabel;
 
-  final String question =
-      'Mom told me to divide the ice cream _____ my five friends.';
-  final List<String> options = ['among', 'with', 'between', 'over'];
-  final String qType = 'mcq';
-
   Quiz(this.quizId, this.quizLabel);
 
   @override
@@ -33,6 +28,7 @@ class _QuizState extends State<Quiz> {
     QuestionModel questionModel = new QuestionModel();
 
     questionModel.question = questionSnapshot.data()["question"];
+    questionModel.hint = questionSnapshot.data()["hint"];
 
     List<String> options = [
       questionSnapshot.data()["option1"],
@@ -132,6 +128,69 @@ class QuizPlayTile extends StatefulWidget {
 
 class _QuizPlayTileState extends State<QuizPlayTile> {
   String optionSelected = "";
+  void _showHint(bool isCorrect) {
+    showModalBottomSheet(
+        backgroundColor: Colors.grey[800],
+        //isCorrect ? Colors.greenAccent.withOpacity(0.5) : Colors.redAccent,
+        context: context,
+        builder: (context) {
+          return Container(
+            decoration: BoxDecoration(
+              color: isCorrect
+                  ? Colors.green[900].withOpacity(0.8)
+                  : Colors.red[900].withOpacity(0.5),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  //SizedBox(height: 20.0),
+                  Text("Correct answer is:",
+                      style: Theme.of(context).textTheme.bodyText1),
+                  SizedBox(height: 10.0),
+                  Text(
+                    widget.questionModel.correctAnswer,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline4
+                        .copyWith(fontSize: 24.0),
+                  ),
+                  SizedBox(height: 20.0),
+                  Text(
+                    widget.questionModel.hint,
+                    style: Theme.of(context).textTheme.subtitle1,
+                  ),
+                  Spacer(),
+                  isCorrect
+                      ? Row(
+                          children: [
+                            Spacer(),
+                            Icon(
+                              Icons.check,
+                              color: Colors.green,
+                              size: 35.0,
+                            ),
+                            Text("Good Job!")
+                          ],
+                        )
+                      : Row(
+                          children: [
+                            Spacer(),
+                            Icon(
+                              Icons.close,
+                              color: Colors.red,
+                              size: 35.0,
+                            ),
+                            Text("Oops!"),
+                          ],
+                        ),
+                ],
+              ),
+            ),
+          );
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -163,12 +222,14 @@ class _QuizPlayTileState extends State<QuizPlayTile> {
                   _correct += 1;
                   _notAttempted -= 1;
                   setState(() {});
+                  _showHint(true);
                 } else {
                   optionSelected = widget.questionModel.option1;
                   widget.questionModel.answered = true;
                   _incorrect += 1;
                   _notAttempted -= 1;
                   setState(() {});
+                  _showHint(false);
                 }
               }
             },
@@ -191,12 +252,14 @@ class _QuizPlayTileState extends State<QuizPlayTile> {
                   _correct += 1;
                   _notAttempted -= 1;
                   setState(() {});
+                  _showHint(true);
                 } else {
                   optionSelected = widget.questionModel.option2;
                   widget.questionModel.answered = true;
                   _incorrect += 1;
                   _notAttempted -= 1;
                   setState(() {});
+                  _showHint(false);
                 }
               }
             },
@@ -220,12 +283,14 @@ class _QuizPlayTileState extends State<QuizPlayTile> {
                   _correct += 1;
                   _notAttempted -= 1;
                   setState(() {});
+                  _showHint(true);
                 } else {
                   optionSelected = widget.questionModel.option3;
                   widget.questionModel.answered = true;
                   _incorrect += 1;
                   _notAttempted -= 1;
                   setState(() {});
+                  _showHint(false);
                 }
               }
             },
@@ -248,12 +313,14 @@ class _QuizPlayTileState extends State<QuizPlayTile> {
                   _correct += 1;
                   _notAttempted -= 1;
                   setState(() {});
+                  _showHint(true);
                 } else {
                   optionSelected = widget.questionModel.option4;
                   widget.questionModel.answered = true;
                   _incorrect += 1;
                   _notAttempted -= 1;
                   setState(() {});
+                  _showHint(false);
                 }
               }
             },

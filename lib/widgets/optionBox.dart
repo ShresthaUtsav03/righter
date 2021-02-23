@@ -23,17 +23,17 @@ class _OptionWidgetState extends State<OptionWidget> {
         border: Border.all(
           color: widget.optionSelected == widget.description
               ? widget.optionSelected == widget.correctOption
-                  ? Colors.green.withOpacity(0.7)
-                  : Colors.red.withOpacity(0.7)
+                  ? Colors.greenAccent
+                  : Colors.redAccent
               : Colors.grey,
-          width: 2.0,
+          width: 3.0,
         ),
-        color: widget.optionSelected == widget.description
-            ? widget.description == widget.correctOption
-                ? Colors.green.withOpacity(0.7)
-                : Colors.red.withOpacity(0.7)
-            : Colors.grey[750],
-        borderRadius: BorderRadius.circular(15),
+        // color: widget.optionSelected == widget.description
+        //     ? widget.description == widget.correctOption
+        //         ? Colors.green.withOpacity(0.7)
+        //         : Colors.red.withOpacity(0.7)
+        //     : Colors.grey[750],
+        borderRadius: BorderRadius.circular(13),
       ),
       child: Text(
         widget.description,

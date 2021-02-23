@@ -31,7 +31,7 @@ class _ResultsState extends State<Results> {
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 24),
                 child: Text(
-                  "You answered ${widget.correct} answers correctly and ${widget.incorrect} answeres incorrectly",
+                  "You answered ${widget.correct} answers correctly and ${widget.incorrect} answers incorrectly",
                   textAlign: TextAlign.center,
                 ),
               ),

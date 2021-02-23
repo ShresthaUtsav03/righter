@@ -2,7 +2,7 @@ class Level {
   final String name;
   final int wMeanings;
   final int mChoice;
-  final int fitBlanks;
+  final int confusing;
   final int articles;
   final int prepositions;
   final int punctuations;
@@ -14,7 +14,7 @@ class Level {
       {this.name,
       this.wMeanings,
       this.mChoice,
-      this.fitBlanks,
+      this.confusing,
       this.articles,
       this.prepositions,
       this.punctuations,

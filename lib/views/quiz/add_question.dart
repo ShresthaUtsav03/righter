@@ -110,14 +110,14 @@ class _AddQuestionState extends State<AddQuestion> {
                     SizedBox(height: 6),
                     TextFormField(
                       style: TextStyle(color: Colors.black),
-                      validator: (val) => val.isEmpty ? "Enter option3" : null,
+                      //validator: (val) => val.isEmpty ? "Enter option3" : null,
                       decoration: InputDecoration(hintText: "Option3"),
                       onChanged: (val) => option3 = val,
                     ),
                     SizedBox(height: 6),
                     TextFormField(
                       style: TextStyle(color: Colors.black),
-                      validator: (val) => val.isEmpty ? "Enter option4" : null,
+                      //validator: (val) => val.isEmpty ? "Enter option4" : null,
                       decoration: InputDecoration(hintText: "Option4"),
                       onChanged: (val) => option4 = val,
                     ),
