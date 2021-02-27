@@ -105,8 +105,9 @@ class WordMeaning extends StatelessWidget {
                             RaisedButton(
                               onPressed: () async {
                                 await DatabaseService(uid: uid).upWord();
-
-                                Navigator.pop(context);
+                                setState() {}
+                                ;
+                                //Navigator.pop(context);
                               },
                               child: Text(
                                 'Next word',

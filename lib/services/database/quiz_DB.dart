@@ -12,11 +12,11 @@ class QuizDatabaseService {
     });
   }
 
-  getQuestionData(String quizId) async {
+  getQuestionData(String quizId, String level) async {
     return await FirebaseFirestore.instance
         .collection("quiz")
         .doc(quizId)
-        .collection("1")
+        .collection(level)
         .get();
   }
 }

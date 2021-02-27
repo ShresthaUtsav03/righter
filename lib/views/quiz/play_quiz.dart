@@ -7,9 +7,9 @@ import 'package:righter/views/quiz/results.dart';
 import 'package:righter/widgets/optionBox.dart';
 
 class Quiz extends StatefulWidget {
-  final String quizId, quizLabel;
+  final String quizId, quizLabel, currentLevel;
 
-  Quiz(this.quizId, this.quizLabel);
+  Quiz(this.quizId, this.quizLabel, this.currentLevel);
 
   @override
   _QuizState createState() => _QuizState();
@@ -51,14 +51,16 @@ class _QuizState extends State<Quiz> {
 
   @override
   void initState() {
-    print("${widget.quizId}");
-    databaseService.getQuestionData(widget.quizId).then((value) {
+    //print("${widget.quizId}");
+    databaseService
+        .getQuestionData(widget.quizId, widget.currentLevel)
+        .then((value) {
       questionSnapshot = value;
       _notAttempted = 0;
       _correct = 0;
       _incorrect = 0;
       total = questionSnapshot.docs.length;
-      print("Total is $total for ${widget.quizId}");
+      //print("Total is $total for ${widget.quizId}");
       setState(() {});
     });
     super.initState();
@@ -140,8 +142,8 @@ class _QuizPlayTileState extends State<QuizPlayTile> {
                   ? Colors.green[900].withOpacity(0.8)
                   : Colors.red[900].withOpacity(0.5),
             ),
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
+            child: Container(
+              padding: EdgeInsets.fromLTRB(20, 20, 20, 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

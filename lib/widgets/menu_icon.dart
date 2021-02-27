@@ -36,7 +36,9 @@ class MenuItem extends StatelessWidget {
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => Quiz(quizId, menuLabel)),
+                  builder: (context) =>
+                      Quiz(quizId, menuLabel, level.toString()),
+                ),
               ),
             ),
             // child: Image.asset(
