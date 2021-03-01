@@ -63,6 +63,14 @@ class DatabaseService {
     });
   }
 
+  Future upLevel(String categoryName) async {
+    return await levelCollection.doc(uid).update({
+      '$categoryName': FieldValue.increment(1),
+    }).then((_) {
+      print("Increment!");
+    });
+  }
+
   //add userData to database when new user is created
   Future updateUserData(
       String name,

@@ -20,18 +20,38 @@ class _ResultsState extends State<Results> {
         child: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Icon(
+                widget.correct / widget.total >= 0.8
+                    ? Icons.arrow_upward
+                    : Icons.arrow_downward,
+                size: 50.0,
+                color: Colors.redAccent,
+              ), // Text(
+              //   "${widget.correct}/ ${widget.total}",
+              //   style: TextStyle(fontSize: 25),
+              // ),
+              // SizedBox(
+              //   height: 5,
+              // ),
+              SizedBox(
+                height: 25,
+              ),
               Text(
-                "${widget.correct}/ ${widget.total}",
-                style: TextStyle(fontSize: 25),
+                widget.correct / widget.total >= 0.8
+                    ? "Level up!"
+                    : "Try again",
+                style: Theme.of(context).textTheme.headline4,
               ),
               SizedBox(
-                height: 5,
+                height: 25,
               ),
+
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 24),
                 child: Text(
-                  "You answered ${widget.correct} answers correctly and ${widget.incorrect} answers incorrectly",
+                  "You got ${((widget.correct / widget.total) * 100).floor()}% answers correct!",
                   textAlign: TextAlign.center,
                 ),
               ),

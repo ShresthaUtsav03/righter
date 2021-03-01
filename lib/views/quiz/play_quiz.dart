@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:righter/models/question_model.dart';
+import 'package:righter/services/database/database.dart';
 import 'package:righter/services/database/quiz_DB.dart';
 import 'package:righter/shared/loading.dart';
 import 'package:righter/views/quiz/results.dart';
@@ -19,8 +21,10 @@ int total = 0;
 int _correct = 0;
 int _incorrect = 0;
 int _notAttempted = 0;
+String uid;
 
 class _QuizState extends State<Quiz> {
+  User user = FirebaseAuth.instance.currentUser;
   QuizDatabaseService databaseService = new QuizDatabaseService();
   QuerySnapshot questionSnapshot;
 
@@ -66,6 +70,12 @@ class _QuizState extends State<Quiz> {
     super.initState();
   }
 
+  void levelUp() async {
+    uid = user.uid;
+    print(uid);
+    await DatabaseService(uid: uid).upLevel(widget.quizId);
+  }
+
   @override
   Widget build(BuildContext context) {
     //double width = MediaQuery.of(context).size.width;
@@ -103,6 +113,11 @@ class _QuizState extends State<Quiz> {
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.check),
           onPressed: () {
+            if (_correct / total >= 0.8) {
+              levelUp();
+            } else {
+              print('bolaena khai kina');
+            }
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(builder: (context) {
@@ -160,33 +175,38 @@ class _QuizPlayTileState extends State<QuizPlayTile> {
                   ),
                   SizedBox(height: 20.0),
                   Text(
-                    widget.questionModel.hint,
+                    widget.questionModel.hint ?? "-",
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
                   Spacer(),
-                  isCorrect
-                      ? Row(
-                          children: [
-                            Spacer(),
-                            Icon(
-                              Icons.check,
-                              color: Colors.green,
-                              size: 35.0,
-                            ),
-                            Text("Good Job!")
-                          ],
-                        )
-                      : Row(
-                          children: [
-                            Spacer(),
-                            Icon(
-                              Icons.close,
-                              color: Colors.red,
-                              size: 35.0,
-                            ),
-                            Text("Oops!"),
-                          ],
-                        ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: isCorrect
+                        ? Row(
+                            children: [
+                              Spacer(),
+                              Icon(
+                                Icons.check,
+                                color: Colors.green,
+                                size: 35.0,
+                              ),
+                              Text("Good Job!")
+                            ],
+                          )
+                        : Row(
+                            children: [
+                              Spacer(),
+                              Icon(
+                                Icons.close,
+                                color: Colors.red,
+                                size: 35.0,
+                              ),
+                              Text("Oops!"),
+                            ],
+                          ),
+                  ),
                 ],
               ),
             ),
