@@ -81,55 +81,87 @@ class _QuizState extends State<Quiz> {
     //double width = MediaQuery.of(context).size.width;
     //double height = MediaQuery.of(context).size.height;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          widget.quizLabel,
-          style: TextStyle(color: Colors.black),
+    return WillPopScope(
+      onWillPop: () {
+        return showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            backgroundColor: Colors.grey[850],
+            title: Text(
+              "Are you sure?",
+              style: Theme.of(context).textTheme.headline4,
+            ),
+            content: Text(
+              "You will lose all your quiz progress if you go back",
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle1
+                  .copyWith(fontWeight: FontWeight.w400, letterSpacing: 0.5),
+            ),
+            actions: <Widget>[
+              FlatButton(
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, '/home');
+                },
+                child: Text(
+                  "OK",
+                  style: Theme.of(context).textTheme.bodyText1,
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            widget.quizLabel,
+            style: TextStyle(color: Colors.black),
+          ),
+          //backgroundColor: Colors.transparent,
+          elevation: 0.0,
+          // iconTheme: IconThemeData(color: Colors.black97),
         ),
-        //backgroundColor: Colors.transparent,
-        elevation: 0.0,
-        // iconTheme: IconThemeData(color: Colors.black97),
-      ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30.0),
-          child: questionSnapshot == null
-              ? Container(
-                  child: Loading(),
-                )
-              : ListView.builder(
-                  shrinkWrap: true,
-                  physics: ClampingScrollPhysics(),
-                  itemCount: questionSnapshot.docs.length,
-                  itemBuilder: (context, index) {
-                    return QuizPlayTile(
-                        questionModel:
-                            getQuestionModel(questionSnapshot.docs[index]),
-                        index: index);
-                  }),
+        body: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+            child: questionSnapshot == null
+                ? Container(
+                    child: Loading(),
+                  )
+                : ListView.builder(
+                    shrinkWrap: true,
+                    physics: ClampingScrollPhysics(),
+                    itemCount: questionSnapshot.docs.length,
+                    itemBuilder: (context, index) {
+                      return QuizPlayTile(
+                          questionModel:
+                              getQuestionModel(questionSnapshot.docs[index]),
+                          index: index);
+                    }),
+          ),
         ),
+        floatingActionButton: FloatingActionButton(
+            child: Icon(Icons.check),
+            onPressed: () {
+              if (_correct / total >= 0.8) {
+                levelUp();
+              } else {
+                print('bolaena khai kina');
+              }
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) {
+                  return Results(
+                    correct: _correct,
+                    incorrect: _incorrect,
+                    notattempted: _notAttempted,
+                    total: total,
+                  );
+                }),
+              );
+            }),
       ),
-      floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.check),
-          onPressed: () {
-            if (_correct / total >= 0.8) {
-              levelUp();
-            } else {
-              print('bolaena khai kina');
-            }
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) {
-                return Results(
-                  correct: _correct,
-                  incorrect: _incorrect,
-                  notattempted: _notAttempted,
-                  total: total,
-                );
-              }),
-            );
-          }),
     );
   }
 }

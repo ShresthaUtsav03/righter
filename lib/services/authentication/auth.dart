@@ -23,18 +23,18 @@ class AuthService {
       User user = result.user;
       print('user found in datavase');
       return _userFromFirebaseUser(user);
-      // } on FirebaseAuthException catch (e) {
-      //   if (e.code == 'user-not-found') {
-      //     return null;
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        return null;
 
-      //     //print('No user found for that email.');
-      //   } else if (e.code == 'wrong-password') {
-      //     return null;
+        //print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        return null;
 
-      //     //print('Wrong password provided for that user.');
-      //   } else {
-      //     return null;
-      //   }
+        //print('Wrong password provided for that user.');
+      } else {
+        return null;
+      }
     } catch (e) {
       print(e.toString());
       return null;

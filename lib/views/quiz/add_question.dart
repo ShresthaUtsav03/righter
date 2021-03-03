@@ -13,7 +13,7 @@ class _AddQuestionState extends State<AddQuestion> {
   final _formKey = GlobalKey<FormState>();
   bool isLoading = false;
   String level = '1';
-  String question, option1, option2, option3, option4;
+  String question, option1, option2, option3, option4, hint;
 
   uploadQuizData(String quizId) async {
     if (_formKey.currentState.validate()) {
@@ -26,7 +26,8 @@ class _AddQuestionState extends State<AddQuestion> {
         "option1": option1,
         "option2": option2,
         "option3": option3,
-        "option4": option4
+        "option4": option4,
+        "hint": hint,
       };
 
       print(quizId);
@@ -38,6 +39,7 @@ class _AddQuestionState extends State<AddQuestion> {
         option2 = "";
         option3 = "";
         option4 = "";
+        hint = "";
         setState(() {
           isLoading = false;
         });
@@ -54,6 +56,7 @@ class _AddQuestionState extends State<AddQuestion> {
     receivedPara = ModalRoute.of(context).settings.arguments;
     //print(receivedPara);
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
@@ -110,16 +113,23 @@ class _AddQuestionState extends State<AddQuestion> {
                     SizedBox(height: 6),
                     TextFormField(
                       style: TextStyle(color: Colors.black),
-                      //validator: (val) => val.isEmpty ? "Enter option3" : null,
+                      validator: (val) => val.isEmpty ? "Enter option3" : null,
                       decoration: InputDecoration(hintText: "Option3"),
                       onChanged: (val) => option3 = val,
                     ),
                     SizedBox(height: 6),
                     TextFormField(
                       style: TextStyle(color: Colors.black),
-                      //validator: (val) => val.isEmpty ? "Enter option4" : null,
+                      validator: (val) => val.isEmpty ? "Enter option4" : null,
                       decoration: InputDecoration(hintText: "Option4"),
                       onChanged: (val) => option4 = val,
+                    ),
+                    SizedBox(height: 6),
+                    TextFormField(
+                      style: TextStyle(color: Colors.black),
+                      validator: (val) => val.isEmpty ? "Enter hint" : null,
+                      decoration: InputDecoration(hintText: "Hint"),
+                      onChanged: (val) => hint = val,
                     ),
                     Spacer(),
                     Row(
