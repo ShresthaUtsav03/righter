@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:righter/services/database/database.dart';
+import 'package:righter/services/database/user_DB.dart';
 
 // ignore: must_be_immutable
 class WordMeaning extends StatelessWidget {

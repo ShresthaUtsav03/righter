@@ -6,11 +6,9 @@ import 'package:righter/views/quiz/add_quiz.dart';
 
 import './models/user.dart';
 import 'services/authentication/auth.dart';
-import 'views/authentication/startup.dart';
 import './views/authentication/login.dart';
 import 'views/authentication/sign_up.dart';
 import 'navigators/wrapper.dart';
-import './widgets/typing_answer.dart';
 import './views/home/home.dart';
 import 'views/word_meaning.dart';
 

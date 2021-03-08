@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:righter/models/question_model.dart';
-import 'package:righter/services/database/database.dart';
+import 'package:righter/services/database/user_DB.dart';
 import 'package:righter/services/database/quiz_DB.dart';
 import 'package:righter/shared/loading.dart';
 import 'package:righter/views/quiz/results.dart';

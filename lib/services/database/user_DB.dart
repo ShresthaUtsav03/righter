@@ -14,8 +14,6 @@ class DatabaseService {
   UserData _userDataFromSnapshot(DocumentSnapshot snapshot) {
     return UserData(
       uid: uid,
-      streakDay: snapshot.data()['streakDay'],
-      level: snapshot.data()['level'],
       wordDay: snapshot.data()['wordDay'],
       confusing: snapshot.data()['confusing'],
       articles: snapshot.data()['articles'],
@@ -75,8 +73,6 @@ class DatabaseService {
   Future updateUserData(
       String name,
       int wordDay,
-      int level,
-      int streakDay,
       int wMeanings,
       int mChoice,
       int confusing,
@@ -90,8 +86,6 @@ class DatabaseService {
       {
         'name': name,
         'wordDay': wordDay,
-        'level': level,
-        'streakDay': streakDay,
         'articles': articles,
         'confusing': confusing,
         'prepositions': prepositions,

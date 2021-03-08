@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:righter/models/user.dart';
 import 'package:provider/provider.dart';
-import 'package:righter/services/database/database.dart';
+import 'package:righter/services/database/user_DB.dart';
 import 'package:righter/shared/loading.dart';
 
 import './grammar_section.dart';
@@ -62,10 +62,17 @@ class MyHomePage extends StatelessWidget {
                       //   presentLevel: userData.present,
                       // ),
                       Profile(
-                        level: userData.level,
-                        streak: userData.streakDay,
                         username: userData.name,
                         uid: userData.uid,
+                        articles: userData.articles,
+                        confusing: userData.confusing,
+                        future: userData.future,
+                        mChoice: userData.mChoice,
+                        past: userData.past,
+                        prepositions: userData.prepositions,
+                        present: userData.present,
+                        punctuations: userData.punctuations,
+                        wMeanings: userData.wMeanings,
                       ),
                     ],
                   ),

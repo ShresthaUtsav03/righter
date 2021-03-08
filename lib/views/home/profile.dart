@@ -1,17 +1,35 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:righter/services/authentication/auth.dart';
-import 'package:righter/services/database/database.dart';
+import 'package:righter/services/database/user_DB.dart';
 
 import 'dart:io';
 
 class Profile extends StatefulWidget {
   final String username;
   final String uid;
-  final int streak;
-  final int level;
+  final int wMeanings;
+  final int mChoice;
+  final int confusing;
+  final int articles;
+  final int prepositions;
+  final int punctuations;
+  final int present;
+  final int past;
+  final int future;
 
-  Profile({this.level, this.streak, this.username, this.uid});
+  Profile(
+      {this.username,
+      this.uid,
+      this.wMeanings,
+      this.mChoice,
+      this.confusing,
+      this.articles,
+      this.prepositions,
+      this.punctuations,
+      this.present,
+      this.past,
+      this.future});
   @override
   _ProfileState createState() => _ProfileState();
 }
@@ -79,7 +97,20 @@ class _ProfileState extends State<Profile> {
           });
     }
 
-    String _getLeague(level) {
+    int _getLevel() {
+      return (widget.articles +
+          widget.confusing +
+          widget.future +
+          widget.mChoice +
+          widget.past +
+          widget.prepositions +
+          widget.present +
+          widget.punctuations +
+          widget.wMeanings);
+    }
+
+    String _getLeague() {
+      int level = _getLevel();
       if (level <= 10) {
         return 'Silver';
       } else if (level <= 20) {
@@ -147,7 +178,7 @@ class _ProfileState extends State<Profile> {
               ),
               SizedBox(height: 10.0),
               Text(
-                widget.level.toString(),
+                _getLevel().toString(),
                 style: Theme.of(context).textTheme.headline4,
               ),
               SizedBox(height: 30.0),
@@ -160,23 +191,22 @@ class _ProfileState extends State<Profile> {
               ),
               SizedBox(height: 10.0),
               Text(
-                _getLeague(widget.level),
+                _getLeague(),
                 style: Theme.of(context).textTheme.headline4,
               ),
               SizedBox(height: 30.0),
-              Text(
-                'BEST STREAK',
-                style: TextStyle(
-                  color: Colors.grey,
-                  letterSpacing: 2.0,
-                ),
-              ),
-              SizedBox(height: 10.0),
-              Text(
-                widget.streak.toString() + ' days',
-                style: Theme.of(context).textTheme.headline4,
-              ),
-              SizedBox(height: 30.0),
+              // Text(
+              //   'BEST STREAK',
+              //   style: TextStyle(
+              //     color: Colors.grey,
+              //     letterSpacing: 2.0,
+              //   ),
+              // ),
+              // SizedBox(height: 10.0),
+              // Text(
+              //   widget.streak.toString() + ' days',
+              //   style: Theme.of(context).textTheme.headline4,
+              // ),
               Row(
                 children: <Widget>[
                   Icon(

@@ -7,9 +7,7 @@ class CustomUser {
 class UserData {
   final String uid;
   final String name;
-  final int level;
   final int wordDay;
-  final int streakDay;
   final int wMeanings;
   final int mChoice;
   final int confusing;
@@ -24,8 +22,6 @@ class UserData {
       {this.uid,
       this.name,
       this.wordDay,
-      this.level,
-      this.streakDay,
       this.wMeanings,
       this.mChoice,
       this.confusing,
