@@ -23,6 +23,9 @@ class AuthService {
       User user = result.user;
       //print('user found in datavase');
       return _userFromFirebaseUser(user);
+      // } catch (e) {
+      //   print(e.toString());
+      //   return null;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         return null;
@@ -35,9 +38,6 @@ class AuthService {
       } else {
         return null;
       }
-    } catch (e) {
-      print(e.toString());
-      return null;
     }
   }
 
@@ -53,18 +53,18 @@ class AuthService {
       await DatabaseService(uid: user.uid)
           .updateUserData(name, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
       return _userFromFirebaseUser(user);
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        return null;
+      // } on FirebaseAuthException catch (e) {
+      //   if (e.code == 'user-not-found') {
+      //     return null;
 
-        //print('No user found for that email.');
-      } else if (e.code == 'wrong-password') {
-        return null;
+      //     //print('No user found for that email.');
+      //   } else if (e.code == 'wrong-password') {
+      //     return null;
 
-        //print('Wrong password provided for that user.');
-      } else {
-        return null;
-      }
+      //     //print('Wrong password provided for that user.');
+      //   } else {
+      //     return null;
+      //   }
     } catch (e) {
       print(e.toString());
       return null;

@@ -45,7 +45,7 @@ class _LoginState extends State<Login> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: <Widget>[
                             SizedBox(
-                              height: height * .31,
+                              height: height * .25,
                             ),
                             Column(
                               children: <Widget>[
@@ -122,14 +122,14 @@ class _LoginState extends State<Login> {
                               },
                             ),
                             SizedBox(
-                              height: 25,
+                              height: height * 0.01,
                             ),
                             Text(
                               error,
                               style: errorStyle,
                             ),
                             SizedBox(
-                              height: 25,
+                              height: height / 100,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -202,7 +202,8 @@ class _LoginState extends State<Login> {
                                   ),
                                 )
                               ],
-                            )
+                            ),
+                            SizedBox(height: height * 0.03),
                           ],
                         ),
                       ),
