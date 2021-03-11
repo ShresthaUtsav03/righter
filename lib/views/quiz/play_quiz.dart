@@ -72,7 +72,7 @@ class _QuizState extends State<Quiz> {
 
   void levelUp() async {
     uid = user.uid;
-    print(uid);
+    //print(uid);
     await DatabaseService(uid: uid).upLevel(widget.quizId);
   }
 
@@ -129,16 +129,20 @@ class _QuizState extends State<Quiz> {
                 ? Container(
                     child: Loading(),
                   )
-                : ListView.builder(
-                    shrinkWrap: true,
-                    physics: ClampingScrollPhysics(),
-                    itemCount: questionSnapshot.docs.length,
-                    itemBuilder: (context, index) {
-                      return QuizPlayTile(
-                          questionModel:
-                              getQuestionModel(questionSnapshot.docs[index]),
-                          index: index);
-                    }),
+                : SingleChildScrollView(
+                    child: Container(
+                      child: ListView.builder(
+                          shrinkWrap: true,
+                          physics: ClampingScrollPhysics(),
+                          itemCount: questionSnapshot.docs.length,
+                          itemBuilder: (context, index) {
+                            return QuizPlayTile(
+                                questionModel: getQuestionModel(
+                                    questionSnapshot.docs[index]),
+                                index: index);
+                          }),
+                    ),
+                  ),
           ),
         ),
         floatingActionButton: FloatingActionButton(

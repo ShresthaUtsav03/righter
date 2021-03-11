@@ -36,12 +36,18 @@ class MyHomePage extends StatelessWidget {
                   minimum: const EdgeInsets.all(10.0),
                   child: TabBarView(
                     children: <Widget>[
-                      VocabularySection(
-                        uid: userData.uid,
-                        wordDay: userData.wordDay,
-                        confusingLevel: userData.confusing,
-                        mChoiceLevel: userData.mChoice,
-                        wMeaningsLevel: userData.wMeanings,
+                      ListView(
+                        children: [
+                          VocabularySection(
+                            uid: userData.uid,
+                            wordDay: userData.wordDay,
+                            confusingLevel: userData.confusing,
+                            mChoiceLevel: userData.mChoice,
+                            wMeaningsLevel: userData.wMeanings,
+                          ),
+                        ],
+                        // physics: ClampingScrollPhysics(),
+                        // shrinkWrap: true,
                       ),
                       ListView(
                         children: [
@@ -61,19 +67,21 @@ class MyHomePage extends StatelessWidget {
                       //   pastLevel: userData.past,
                       //   presentLevel: userData.present,
                       // ),
-                      Profile(
-                        username: userData.name,
-                        uid: userData.uid,
-                        articles: userData.articles,
-                        confusing: userData.confusing,
-                        future: userData.future,
-                        mChoice: userData.mChoice,
-                        past: userData.past,
-                        prepositions: userData.prepositions,
-                        present: userData.present,
-                        punctuations: userData.punctuations,
-                        wMeanings: userData.wMeanings,
-                      ),
+                      ListView(children: [
+                        Profile(
+                          username: userData.name,
+                          uid: userData.uid,
+                          articles: userData.articles,
+                          confusing: userData.confusing,
+                          future: userData.future,
+                          mChoice: userData.mChoice,
+                          past: userData.past,
+                          prepositions: userData.prepositions,
+                          present: userData.present,
+                          punctuations: userData.punctuations,
+                          wMeanings: userData.wMeanings,
+                        ),
+                      ]),
                     ],
                   ),
                 ),

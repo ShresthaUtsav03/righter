@@ -30,7 +30,7 @@ class _AddQuestionState extends State<AddQuestion> {
         "hint": hint,
       };
 
-      print(quizId);
+      //print(quizId);
       await databaseService
           .addQuestionData(questionMap, quizId, level)
           .then((value) {
@@ -136,11 +136,12 @@ class _AddQuestionState extends State<AddQuestion> {
                       children: [
                         GestureDetector(
                           onTap: () {
+                            uploadQuizData(receivedPara['quizId'].toString());
                             Navigator.pop(context);
                           },
                           child: Container(
                             alignment: Alignment.center,
-                            width: MediaQuery.of(context).size.width / 2 - 20,
+                            width: MediaQuery.of(context).size.width / 2 - 30,
                             padding: EdgeInsets.symmetric(
                                 horizontal: 24, vertical: 20),
                             decoration: BoxDecoration(
@@ -153,24 +154,22 @@ class _AddQuestionState extends State<AddQuestion> {
                             ),
                           ),
                         ),
-                        SizedBox(
-                          width: 8,
-                        ),
+                        Spacer(),
                         GestureDetector(
                           onTap: () {
-                            print(receivedPara['quizId']);
+                            //print(receivedPara['quizId']);
                             uploadQuizData(receivedPara['quizId'].toString());
                           },
                           child: Container(
                             alignment: Alignment.center,
-                            width: MediaQuery.of(context).size.width / 2 - 40,
+                            width: MediaQuery.of(context).size.width / 2 - 30,
                             padding: EdgeInsets.symmetric(
                                 horizontal: 24, vertical: 20),
                             decoration: BoxDecoration(
                                 color: Colors.blue,
                                 borderRadius: BorderRadius.circular(30)),
                             child: Text(
-                              "Add Question",
+                              "Add More",
                               style:
                                   TextStyle(fontSize: 16, color: Colors.white),
                             ),

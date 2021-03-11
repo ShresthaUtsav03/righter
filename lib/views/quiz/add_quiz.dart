@@ -14,76 +14,78 @@ class AddQuiz extends StatelessWidget {
         elevation: 0.0,
         // iconTheme: IconThemeData(color: Colors.black97),
       ),
-      body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 50.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            RaisedButton(
-                child: Text('Word Meanings'),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/addQuestion', arguments: {
-                    'quizId': 'wMeanings',
-                  });
-                }),
-            RaisedButton(
-                child: Text('Multiple Choice'),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/addQuestion', arguments: {
-                    'quizId': 'mChoice',
-                  });
-                }),
-            RaisedButton(
-                child: Text('Confusing terms'),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/addQuestion', arguments: {
-                    'quizId': 'confusing',
-                  });
-                }),
-            RaisedButton(
-                child: Text('Present Tense'),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/addQuestion', arguments: {
-                    'quizId': 'present',
-                  });
-                }),
-            RaisedButton(
-                child: Text('Past Tense'),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/addQuestion', arguments: {
-                    'quizId': 'past',
-                  });
-                }),
-            RaisedButton(
-                child: Text('Future Tense'),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/addQuestion', arguments: {
-                    'quizId': 'future',
-                  });
-                }),
-            RaisedButton(
-                child: Text('Articles'),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/addQuestion', arguments: {
-                    'quizId': 'articles',
-                  });
-                }),
-            RaisedButton(
-                child: Text('Prepositions'),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/addQuestion', arguments: {
-                    'quizId': 'prepositions',
-                  });
-                }),
-            RaisedButton(
-                child: Text('Conjunctions'),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/addQuestion', arguments: {
-                    'quizId': 'conjunctions',
-                  });
-                }),
-          ],
+      body: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 50.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              RaisedButton(
+                  child: Text('Word Meanings'),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/addQuestion', arguments: {
+                      'quizId': 'wMeanings',
+                    });
+                  }),
+              RaisedButton(
+                  child: Text('Multiple Choice'),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/addQuestion', arguments: {
+                      'quizId': 'mChoice',
+                    });
+                  }),
+              RaisedButton(
+                  child: Text('Confusing terms'),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/addQuestion', arguments: {
+                      'quizId': 'confusing',
+                    });
+                  }),
+              RaisedButton(
+                  child: Text('Present Tense'),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/addQuestion', arguments: {
+                      'quizId': 'present',
+                    });
+                  }),
+              RaisedButton(
+                  child: Text('Past Tense'),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/addQuestion', arguments: {
+                      'quizId': 'past',
+                    });
+                  }),
+              RaisedButton(
+                  child: Text('Future Tense'),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/addQuestion', arguments: {
+                      'quizId': 'future',
+                    });
+                  }),
+              RaisedButton(
+                  child: Text('Articles'),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/addQuestion', arguments: {
+                      'quizId': 'articles',
+                    });
+                  }),
+              RaisedButton(
+                  child: Text('Prepositions'),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/addQuestion', arguments: {
+                      'quizId': 'prepositions',
+                    });
+                  }),
+              RaisedButton(
+                  child: Text('Conjunctions'),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/addQuestion', arguments: {
+                      'quizId': 'conjunctions',
+                    });
+                  }),
+            ],
+          ),
         ),
       ),
     );

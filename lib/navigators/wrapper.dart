@@ -8,14 +8,14 @@ class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<CustomUser>(context);
-    print('inside wrapper');
+    //print('inside wrapper');
     //print(user);
     //return home or startup
     if (user == null) {
-      print('calling authenticate');
+      // print('calling authenticate');
       return Authenticate();
     } else {
-      print('calling hoomepage');
+      //print('calling hoomepage');
       return MyHomePage();
     }
   }

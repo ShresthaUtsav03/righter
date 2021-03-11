@@ -21,7 +21,7 @@ class AuthService {
       UserCredential result = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
       User user = result.user;
-      print('user found in datavase');
+      //print('user found in datavase');
       return _userFromFirebaseUser(user);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
@@ -51,7 +51,7 @@ class AuthService {
 
       //create document for the user
       await DatabaseService(uid: user.uid)
-          .updateUserData(name, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+          .updateUserData(name, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
       return _userFromFirebaseUser(user);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {

@@ -19,20 +19,23 @@ class MenuItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    //double width = MediaQuery.of(context).size.width;
     return Container(
       child: Column(
         children: <Widget>[
           Text(
             'Level ' + level.toString(),
-            style: Theme.of(context).textTheme.headline4,
+            style: Theme.of(context).textTheme.headline4.copyWith(
+                  fontSize: 22.0,
+                ),
           ),
-          SizedBox(height: 10.0),
+          SizedBox(height: height * 0.01),
           CircleAvatar(
             backgroundColor: bgColor,
             backgroundImage: ExactAssetImage(imageLocation),
             child: InkWell(
               borderRadius: BorderRadius.circular(50.0),
-              //onTap: () => print('yay'),
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -46,7 +49,7 @@ class MenuItem extends StatelessWidget {
             //   // fit: BoxFit.cover,
             //   scale: iconSize,
             // ),
-            radius: 50.0,
+            radius: height * 0.065,
           ),
           SizedBox(height: 10.0),
           Text(

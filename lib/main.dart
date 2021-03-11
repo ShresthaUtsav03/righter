@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
                 subtitle1: TextStyle(
                   //fontFamily: 'OpenSans',
                   color: Colors.white,
-                  fontSize: 19,
+                  fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
                 bodyText2: TextStyle(

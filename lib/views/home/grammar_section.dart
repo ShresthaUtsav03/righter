@@ -23,12 +23,13 @@ class GrammarSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
     // return Container(
     //   height: 500,
     //   child: ListView.builder(
     //     itemBuilder: (context, index) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 30.0),
+      margin: EdgeInsets.symmetric(vertical: height * 0.02),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
@@ -36,16 +37,16 @@ class GrammarSection extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 10.0),
+                SizedBox(height: height * 0.01),
                 Text(
                   'Verbs',
                   style: Theme.of(context).textTheme.headline3,
                 ),
-                SizedBox(height: 10.0),
+                SizedBox(height: height * 0.01),
               ],
             ),
           ),
-          SizedBox(height: 20.0),
+          SizedBox(height: height * 0.02),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
@@ -58,8 +59,7 @@ class GrammarSection extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 20.0),
-
+          SizedBox(height: height * 0.03),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -79,42 +79,18 @@ class GrammarSection extends StatelessWidget {
               ),
             ],
           ),
-          // InkWell(
-          //   onTap: () {
-          //     print('object');
-          //     Navigator.pushNamed(context, '/bonus');
-          //   },
-          //   child: Card(
-          //     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 30),
-          //     elevation: 5.0,
-          //     child: Column(
-          //       mainAxisSize: MainAxisSize.min,
-          //       crossAxisAlignment: CrossAxisAlignment.center,
-          //       children: [
-          //         SizedBox(height: 20.0),
-          //         Text(
-          //           'Bonus tips',
-          //           style: Theme.of(context).textTheme.headline3,
-          //         ),
-          //         SizedBox(height: 10.0),
-          //         BonusTip(bonusId: bonusId, uid: uid),
-          //         SizedBox(height: 20.0),
-          //       ],
-          //     ),
-          //   ),
-          // ),
-          SizedBox(height: 20.0),
+          SizedBox(height: height * 0.04),
           Card(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 10.0),
+                SizedBox(height: height * 0.01),
                 Text('Others', style: Theme.of(context).textTheme.headline3),
-                SizedBox(height: 10.0),
+                SizedBox(height: height * 0.01),
               ],
             ),
           ),
-          SizedBox(height: 20.0),
+          SizedBox(height: height * 0.02),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
@@ -127,7 +103,7 @@ class GrammarSection extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 20.0),
+          SizedBox(height: height * 0.03),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
@@ -140,14 +116,14 @@ class GrammarSection extends StatelessWidget {
               ),
               MenuItem(
                 bgColor: Colors.blueAccent,
-                imageLocation: 'assets/images/punctuations.png',
+                imageLocation: 'assets/images/conjunction.png',
                 level: punctuationsLevel,
-                menuLabel: 'Punctuations',
-                quizId: 'punctuations',
+                menuLabel: 'Conjuctions',
+                quizId: 'conjuctions',
               )
             ],
           ),
-          SizedBox(height: 20.0),
+          SizedBox(height: height * 0.02),
         ],
       ),
 
