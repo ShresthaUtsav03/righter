@@ -27,7 +27,7 @@ class VocabularySection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Container(
-            height: height * 0.267,
+            //height: height * 0.267,
             child: Card(
               margin: EdgeInsets.symmetric(
                   horizontal: width * 0.01, vertical: height * 0.025),
@@ -43,6 +43,7 @@ class VocabularySection extends StatelessWidget {
                   ),
                   SizedBox(height: height * 0.01),
                   WordOfTheDay(wordId: wordDay.toString(), uid: uid),
+                  SizedBox(height: height * 0.02),
                 ],
               ),
             ),
