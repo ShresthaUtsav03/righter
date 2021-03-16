@@ -5,7 +5,7 @@ class Level {
   final int confusing;
   final int articles;
   final int prepositions;
-  final int punctuations;
+  final int conjunctions;
   final int present;
   final int past;
   final int future;
@@ -17,7 +17,7 @@ class Level {
       this.confusing,
       this.articles,
       this.prepositions,
-      this.punctuations,
+      this.conjunctions,
       this.past,
       this.present,
       this.future});

@@ -13,7 +13,7 @@ class Profile extends StatefulWidget {
   final int confusing;
   final int articles;
   final int prepositions;
-  final int punctuations;
+  final int conjunctions;
   final int present;
   final int past;
   final int future;
@@ -26,7 +26,7 @@ class Profile extends StatefulWidget {
       this.confusing,
       this.articles,
       this.prepositions,
-      this.punctuations,
+      this.conjunctions,
       this.present,
       this.past,
       this.future});
@@ -106,7 +106,7 @@ class _ProfileState extends State<Profile> {
           widget.past +
           widget.prepositions +
           widget.present +
-          widget.punctuations +
+          widget.conjunctions +
           widget.wMeanings -
           8);
     }

@@ -23,7 +23,7 @@ class DatabaseService {
       past: snapshot.data()['past'],
       prepositions: snapshot.data()['prepositions'],
       present: snapshot.data()['present'],
-      punctuations: snapshot.data()['punctuations'],
+      conjunctions: snapshot.data()['conjunctions'],
       wMeanings: snapshot.data()['wMeanings'],
     );
   }
@@ -78,7 +78,7 @@ class DatabaseService {
       int confusing,
       int articles,
       int prepositions,
-      int punctuations,
+      int conjunctions,
       int present,
       int past,
       int future) async {
@@ -91,7 +91,7 @@ class DatabaseService {
         'prepositions': prepositions,
         'mChoice': mChoice,
         'wMeanings': wMeanings,
-        'punctuations': punctuations,
+        'conjunctions': conjunctions,
         'past': past,
         'present': present,
         'future': future,
@@ -112,7 +112,7 @@ class DatabaseService {
 //         past: doc.data()['past'] ?? '1',
 //         prepositions: doc.data()['prepositions'] ?? '1',
 //         present: doc.data()['present'] ?? '1',
-//         punctuations: doc.data()['punctuations'] ?? '1',
+//         conjunctions: doc.data()['conjunctions'] ?? '1',
 //         wMeanings: doc.data()['wMeanings'] ?? '1');
 //   }).toList();
 // }

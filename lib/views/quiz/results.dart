@@ -27,7 +27,9 @@ class _ResultsState extends State<Results> {
                     ? Icons.arrow_upward
                     : Icons.arrow_downward,
                 size: 50.0,
-                color: Colors.redAccent,
+                color: widget.correct / widget.total >= 0.8
+                    ? Colors.greenAccent
+                    : Colors.redAccent,
               ), // Text(
               //   "${widget.correct}/ ${widget.total}",
               //   style: TextStyle(fontSize: 25),

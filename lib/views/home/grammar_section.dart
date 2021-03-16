@@ -6,7 +6,7 @@ class GrammarSection extends StatelessWidget {
   final int bonusId;
   final int articlesLevel;
   final int prepositionsLevel;
-  final int punctuationsLevel;
+  final int conjunctionsLevel;
   final int pastLevel;
   final int presentLevel;
   final int futureLevel;
@@ -16,7 +16,7 @@ class GrammarSection extends StatelessWidget {
       this.bonusId,
       this.articlesLevel,
       this.prepositionsLevel,
-      this.punctuationsLevel,
+      this.conjunctionsLevel,
       this.futureLevel,
       this.pastLevel,
       this.presentLevel});
@@ -98,7 +98,7 @@ class GrammarSection extends StatelessWidget {
                 bgColor: Colors.deepOrangeAccent,
                 imageLocation: 'assets/images/the.png',
                 level: articlesLevel,
-                menuLabel: 'Articles',
+                menuLabel: 'articles',
                 quizId: 'articles',
               ),
             ],
@@ -117,7 +117,7 @@ class GrammarSection extends StatelessWidget {
               MenuItem(
                 bgColor: Colors.blueAccent,
                 imageLocation: 'assets/images/conjunction.png',
-                level: punctuationsLevel,
+                level: conjunctionsLevel,
                 menuLabel: 'Conjuctions',
                 quizId: 'conjuctions',
               )

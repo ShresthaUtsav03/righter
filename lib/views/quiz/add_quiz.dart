@@ -64,7 +64,7 @@ class AddQuiz extends StatelessWidget {
                     });
                   }),
               RaisedButton(
-                  child: Text('Articles'),
+                  child: Text('Phrasal Verbs'),
                   onPressed: () {
                     Navigator.pushNamed(context, '/addQuestion', arguments: {
                       'quizId': 'articles',
