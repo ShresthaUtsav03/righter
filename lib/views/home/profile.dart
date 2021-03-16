@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:righter/services/authentication/auth.dart';
 import 'package:righter/services/database/user_DB.dart';
+import 'package:flutter_avatars_bottts/flutter_avatars_bottts.dart';
 
 import 'dart:io';
 
@@ -17,6 +18,8 @@ class Profile extends StatefulWidget {
   final int present;
   final int past;
   final int future;
+
+  var _bottt = Bottt.random();
 
   Profile(
       {this.username,
@@ -139,18 +142,18 @@ class _ProfileState extends State<Profile> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             CircleAvatar(
-              backgroundImage: ExactAssetImage(imageLocation),
-              radius: 50.0,
-              child: InkWell(
-                borderRadius: BorderRadius.circular(50.0),
-                onTap: () {
-                  //print('Delete or change dp ');
-                },
-                //child: ,
-                //behavior: HitTestBehavior.opaque,
+              backgroundColor: Colors.black,
+              radius: 42.5,
+              child: CircleAvatar(
+                // backgroundImage: ExactAssetImage(imageLocation),
+                backgroundColor: Colors.white.withOpacity(0.3),
+                radius: 40.0,
+                child: Padding(
+                    padding: EdgeInsets.all(width * 0.02),
+                    child: BotttAvatar(widget._bottt)),
               ),
             ),
-            SizedBox(height: height * 0.02),
+            SizedBox(height: height * 0.01),
             Row(
               children: [
                 Text(
