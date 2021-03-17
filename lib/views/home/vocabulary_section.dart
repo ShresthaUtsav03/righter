@@ -76,24 +76,24 @@ class VocabularySection extends StatelessWidget {
             ],
           ),
           //Spacer(),
-          RaisedButton(
-            child: Text("Add quiz"),
-            onPressed: () {
-              Navigator.pushNamed(
-                context,
-                '/addQuiz',
-              );
-            },
-          ),
-          RaisedButton(
-            child: Text("Add Word"),
-            onPressed: () {
-              Navigator.pushNamed(
-                context,
-                '/addWord',
-              );
-            },
-          ),
+          // RaisedButton(
+          //   child: Text("Add quiz"),
+          //   onPressed: () {
+          //     Navigator.pushNamed(
+          //       context,
+          //       '/addQuiz',
+          //     );
+          //   },
+          // ),
+          // RaisedButton(
+          //   child: Text("Add Word"),
+          //   onPressed: () {
+          //     Navigator.pushNamed(
+          //       context,
+          //       '/addWord',
+          //     );
+          //   },
+          // ),
         ],
       ),
     );

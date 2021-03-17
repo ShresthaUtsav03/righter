@@ -4,7 +4,7 @@ import 'package:righter/widgets/menu_icon.dart';
 class GrammarSection extends StatelessWidget {
   final String uid;
   final int bonusId;
-  final int articlesLevel;
+  final int randomLevel;
   final int prepositionsLevel;
   final int conjunctionsLevel;
   final int pastLevel;
@@ -14,7 +14,7 @@ class GrammarSection extends StatelessWidget {
   GrammarSection(
       {this.uid,
       this.bonusId,
-      this.articlesLevel,
+      this.randomLevel,
       this.prepositionsLevel,
       this.conjunctionsLevel,
       this.futureLevel,
@@ -39,7 +39,7 @@ class GrammarSection extends StatelessWidget {
               children: [
                 SizedBox(height: height * 0.01),
                 Text(
-                  'Verbs',
+                  'Tenses',
                   style: Theme.of(context).textTheme.headline3,
                 ),
                 SizedBox(height: height * 0.01),
@@ -97,9 +97,9 @@ class GrammarSection extends StatelessWidget {
               MenuItem(
                 bgColor: Colors.deepOrangeAccent,
                 imageLocation: 'assets/images/the.png',
-                level: articlesLevel,
-                menuLabel: 'articles',
-                quizId: 'articles',
+                level: randomLevel,
+                menuLabel: 'Random',
+                quizId: 'random',
               ),
             ],
           ),

@@ -3,7 +3,7 @@ class Level {
   final int wMeanings;
   final int mChoice;
   final int confusing;
-  final int articles;
+  final int random;
   final int prepositions;
   final int conjunctions;
   final int present;
@@ -15,7 +15,7 @@ class Level {
       this.wMeanings,
       this.mChoice,
       this.confusing,
-      this.articles,
+      this.random,
       this.prepositions,
       this.conjunctions,
       this.past,

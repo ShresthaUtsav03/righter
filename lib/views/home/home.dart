@@ -53,7 +53,7 @@ class MyHomePage extends StatelessWidget {
                         children: [
                           GrammarSection(
                             uid: userData.uid,
-                            articlesLevel: userData.articles,
+                            randomLevel: userData.random,
                             prepositionsLevel: userData.prepositions,
                             conjunctionsLevel: userData.conjunctions,
                             futureLevel: userData.future,
@@ -71,7 +71,7 @@ class MyHomePage extends StatelessWidget {
                         Profile(
                             username: userData.name,
                             uid: userData.uid,
-                            articles: userData.articles,
+                            random: userData.random,
                             confusing: userData.confusing,
                             future: userData.future,
                             mChoice: userData.mChoice,

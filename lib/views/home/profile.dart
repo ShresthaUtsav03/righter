@@ -12,7 +12,7 @@ class Profile extends StatefulWidget {
   final int wMeanings;
   final int mChoice;
   final int confusing;
-  final int articles;
+  final int random;
   final int prepositions;
   final int conjunctions;
   final int present;
@@ -27,7 +27,7 @@ class Profile extends StatefulWidget {
       this.wMeanings,
       this.mChoice,
       this.confusing,
-      this.articles,
+      this.random,
       this.prepositions,
       this.conjunctions,
       this.present,
@@ -102,7 +102,7 @@ class _ProfileState extends State<Profile> {
     }
 
     int _getLevel() {
-      return (widget.articles +
+      return (widget.random +
           widget.confusing +
           widget.future +
           widget.mChoice +

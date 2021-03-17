@@ -16,7 +16,7 @@ class DatabaseService {
       uid: uid,
       wordDay: snapshot.data()['wordDay'],
       confusing: snapshot.data()['confusing'],
-      articles: snapshot.data()['articles'],
+      random: snapshot.data()['random'],
       future: snapshot.data()['future'],
       mChoice: snapshot.data()['mChoice'],
       name: snapshot.data()['name'],
@@ -76,7 +76,7 @@ class DatabaseService {
       int wMeanings,
       int mChoice,
       int confusing,
-      int articles,
+      int random,
       int prepositions,
       int conjunctions,
       int present,
@@ -86,7 +86,7 @@ class DatabaseService {
       {
         'name': name,
         'wordDay': wordDay,
-        'articles': articles,
+        'random': random,
         'confusing': confusing,
         'prepositions': prepositions,
         'mChoice': mChoice,
@@ -105,7 +105,7 @@ class DatabaseService {
 //   return snapshot.docs.map((doc) {
 //     return Level(
 //         mChoice: doc.data()['mChoice'] ?? '1',
-//         articles: doc.data()['articles'] ?? '1',
+//         random: doc.data()['random'] ?? '1',
 //         confusing: doc.data()['confusing'] ?? '1',
 //         name: doc.data()['name'] ?? 'username',
 //         future: doc.data()['future'] ?? '1',
